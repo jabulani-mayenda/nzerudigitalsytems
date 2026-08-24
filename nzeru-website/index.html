@@ -1,0 +1,4102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Nzeru Digital — Smart Systems. Secure Businesses. Better Decisions.</title>
+
+  <meta
+    name="description"
+    content="Nzeru Digital builds smart systems, secures businesses and turns data into better decisions. Malawi-based digital solutions, enterprise SaaS & cybersecurity."
+  />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/logo/logonzeru.jpeg" />
+  <link rel="apple-touch-icon" href="assets/logo/logonzeru.jpeg" />
+
+  <!-- OpenGraph Social Sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Nzeru Digital Solutions" />
+  <meta property="og:title" content="Nzeru Digital — Smart Systems. Secure Businesses." />
+  <meta property="og:description" content="Custom software, subscription SaaS systems, cybersecurity audits & AI-driven business intelligence in Malawi." />
+  <meta property="og:image" content="assets/logo/logonzeru.jpeg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Nzeru Digital — Smart Systems. Secure Businesses." />
+  <meta name="twitter:description" content="Custom software, subscription SaaS systems, cybersecurity audits & AI-driven business intelligence in Malawi." />
+  <meta name="twitter:image" content="assets/logo/logonzeru.jpeg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+
+    /* =========================================================
+       N Z E R U  —  GLOBAL
+    ========================================================= */
+
+    :root {
+      --white: #ffffff;
+      --off-white: #f7f8f7;
+      --black: #101313;
+      --muted: #687271;
+
+      --teal: #075057;
+      --teal-dark: #043c42;
+      --teal-light: #e7f1f0;
+
+      --red: #df2419;
+      --red-dark: #b91b13;
+
+      --border: rgba(16, 19, 19, 0.12);
+
+      --container: 1240px;
+
+      --ease: cubic-bezier(.22, 1, .36, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: var(--white);
+      color: var(--black);
+      overflow-x: hidden;
+    }
+
+    body.no-scroll {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      border: 0;
+      background: none;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    ::selection {
+      background: var(--red);
+      color: white;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: 130px 0;
+      position: relative;
+    }
+
+    .eyebrow {
+      color: var(--red);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(42px, 6vw, 82px);
+      line-height: .96;
+      letter-spacing: -.055em;
+      max-width: 900px;
+    }
+
+    .section-title span {
+      color: var(--red);
+    }
+
+    .body-copy {
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 560px;
+    }
+
+
+    /* =========================================================
+       LOADER
+    ========================================================= */
+
+    .loader {
+      position: fixed;
+      inset: 0;
+      background: var(--teal);
+      z-index: 9999;
+      display: grid;
+      place-items: center;
+      transition:
+        opacity .8s var(--ease),
+        visibility .8s;
+    }
+
+    .loader.hide {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .loader-logo {
+      color: white;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(50px, 10vw, 110px);
+      font-weight: 700;
+      letter-spacing: -.07em;
+      overflow: hidden;
+    }
+
+    .loader-logo span {
+      display: inline-block;
+      transform: translateY(110%);
+      animation: loaderLetters .8s var(--ease) forwards;
+    }
+
+    .loader-logo span:nth-child(2) {
+      animation-delay: .08s;
+    }
+
+    .loader-logo span:nth-child(3) {
+      animation-delay: .16s;
+    }
+
+    .loader-logo span:nth-child(4) {
+      animation-delay: .24s;
+    }
+
+    .loader-logo span:nth-child(5) {
+      animation-delay: .32s;
+    }
+
+    @keyframes loaderLetters {
+      to {
+        transform: translateY(0);
+      }
+    }
+
+
+    /* =========================================================
+       NAVIGATION
+    ========================================================= */
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 24px 0;
+      transition:
+        background .4s ease,
+        padding .4s ease,
+        box-shadow .4s ease;
+    }
+
+    .nav.scrolled {
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(18px);
+      padding: 16px 0;
+      box-shadow: 0 1px 0 var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 25px;
+      font-weight: 700;
+      letter-spacing: -.07em;
+    }
+
+    .logo small {
+      display: block;
+      font-family: "DM Sans", sans-serif;
+      font-size: 6px;
+      letter-spacing: .16em;
+      color: var(--teal);
+      margin-top: -2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--red);
+      bottom: -7px;
+      left: 0;
+      transition: width .3s var(--ease);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      background: var(--red);
+      color: white;
+      padding: 12px 19px;
+      border-radius: 3px;
+      font-size: 12px;
+      font-weight: 700;
+      transition: transform .3s var(--ease), background .3s ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--red-dark);
+      transform: translateY(-3px);
+    }
+
+    .mobile-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .mobile-toggle span {
+      width: 17px;
+      height: 1px;
+      background: var(--black);
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 100px;
+    }
+
+    /* particle canvas replaces hero-grid and hero-orb */
+    #particle-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-kicker {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 25px;
+      font-size: 12px;
+      font-weight: 600;
+      opacity: 0;
+      transform: translateX(-50px);
+      animation: slideLeft 1s .8s var(--ease) forwards;
+    }
+
+    .hero-kicker i {
+      width: 35px;
+      height: 1px;
+      background: var(--red);
+    }
+
+    .hero-title {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(75px, 15vw, 220px);
+      line-height: .78;
+      letter-spacing: -.085em;
+      display: flex;
+      overflow: hidden;
+      margin-left: -8px;
+    }
+
+    .hero-title span {
+      display: inline-block;
+      transform: translateX(-110%);
+      opacity: 0;
+      animation: heroLetter 1.1s var(--ease) forwards;
+    }
+
+    .hero-title span:nth-child(1) {
+      animation-delay: .55s;
+    }
+
+    .hero-title span:nth-child(2) {
+      animation-delay: .65s;
+    }
+
+    .hero-title span:nth-child(3) {
+      animation-delay: .75s;
+    }
+
+    .hero-title span:nth-child(4) {
+      animation-delay: .85s;
+    }
+
+    .hero-title span:nth-child(5) {
+      animation-delay: .95s;
+      color: var(--teal);
+    }
+
+    @keyframes heroLetter {
+      0% {
+        transform: translateX(-110%);
+        opacity: 0;
+      }
+
+      70% {
+        transform: translateX(8%);
+      }
+
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .hero-subtitle {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(24px, 3vw, 42px);
+      line-height: 1.1;
+      max-width: 760px;
+      margin-top: 45px;
+      letter-spacing: -.04em;
+      opacity: 0;
+      transform: translateX(-60px);
+      animation: slideLeft 1s 1.3s var(--ease) forwards;
+    }
+
+    .hero-subtitle span {
+      color: var(--red);
+    }
+
+    .hero-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 55px;
+      opacity: 0;
+      transform: translateX(-60px);
+      animation: slideLeft 1s 1.5s var(--ease) forwards;
+    }
+
+    .hero-description {
+      color: var(--muted);
+      max-width: 440px;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 15px;
+      background: var(--red);
+      color: white;
+      padding: 16px 22px;
+      font-size: 12px;
+      font-weight: 700;
+      position: relative;
+      overflow: hidden;
+      border-radius: 2px;
+      transition: transform .4s var(--ease);
+    }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--black);
+      transform: translateX(-101%);
+      transition: transform .5s var(--ease);
+    }
+
+    .btn:hover::before {
+      transform: translateX(0);
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+    }
+
+    .btn span {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      right: 30px;
+      bottom: 35px;
+      writing-mode: vertical-rl;
+      font-size: 9px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-scroll::before {
+      content: "";
+      width: 1px;
+      height: 45px;
+      background: var(--red);
+    }
+
+    @keyframes slideLeft {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+
+    /* =========================================================
+       SERVICES
+    ========================================================= */
+
+    .services {
+      background: var(--off-white);
+    }
+
+    .services-heading {
+      display: flex;
+      justify-content: space-between;
+      gap: 50px;
+      margin-bottom: 70px;
+    }
+
+    .services-heading .body-copy {
+      padding-top: 10px;
+    }
+
+    .services-list {
+      border-top: 1px solid var(--border);
+    }
+
+    .service {
+      display: grid;
+      grid-template-columns: 90px 1.4fr 1fr 100px;
+      gap: 30px;
+      align-items: center;
+      padding: 38px 0;
+      border-bottom: 1px solid var(--border);
+      transition:
+        padding .5s var(--ease),
+        background .5s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--teal);
+      transform: translateX(-101%);
+      transition: transform .6s var(--ease);
+      z-index: 0;
+    }
+
+    .service:hover::before {
+      transform: translateX(0);
+    }
+
+    .service > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .service:hover {
+      padding-left: 25px;
+      padding-right: 25px;
+      color: white;
+    }
+
+    .service-number {
+      color: var(--red);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 14px;
+    }
+
+    .service:hover .service-number {
+      color: #fff;
+    }
+
+    .service-name {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(25px, 3vw, 40px);
+      letter-spacing: -.04em;
+    }
+
+    .service-description {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .service:hover .service-description {
+      color: rgba(255,255,255,.7);
+    }
+
+    .service-arrow {
+      width: 45px;
+      height: 45px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      justify-self: end;
+      transition: all .4s var(--ease);
+    }
+
+    .service:hover .service-arrow {
+      background: var(--red);
+      border-color: var(--red);
+      transform: rotate(-45deg);
+    }
+
+
+    /* =========================================================
+       ABOUT
+    ========================================================= */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: center;
+    }
+
+    .about-image {
+      position: relative;
+      min-height: 580px;
+    }
+
+    .about-image-main {
+      width: 82%;
+      height: 500px;
+      margin-left: auto;
+      overflow: hidden;
+      background: var(--teal-light);
+    }
+
+    .about-image-main img {
+      height: 100%;
+      transition: transform 1s var(--ease);
+    }
+
+    .about-image:hover img {
+      transform: scale(1.05);
+    }
+
+    .about-accent {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 180px;
+      height: 180px;
+      background: var(--red);
+      z-index: -1;
+    }
+
+    /* floating stat pills on about image */
+    .about-stat {
+      position: absolute;
+      background: white;
+      border-left: 3px solid var(--teal);
+      padding: 14px 20px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.12);
+      z-index: 3;
+      animation: floatY 4s ease-in-out infinite;
+    }
+    .about-stat:nth-child(3) { animation-delay: -2s; }
+    .about-stat-num {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--teal);
+      letter-spacing: -.04em;
+      line-height: 1;
+    }
+    .about-stat-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    @keyframes floatY {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-10px); }
+    }
+
+    /* teal side strip */
+    .about-strip {
+      position: absolute;
+      right: 0;
+      top: 40px;
+      width: 5px;
+      height: 60%;
+      background: linear-gradient(to bottom, var(--teal), var(--red));
+      border-radius: 4px;
+    }
+
+    .about-number {
+      position: absolute;
+      top: 30px;
+      left: 0;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 90px;
+      line-height: 1;
+      color: var(--teal);
+      opacity: .12;
+    }
+
+    .about-content .section-title {
+      margin-bottom: 35px;
+    }
+
+    .about-content .body-copy {
+      margin-bottom: 30px;
+    }
+
+    /* inline pillars under about copy */
+    .about-pillars {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+      margin-bottom: 32px;
+    }
+    .about-pillar {
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--teal);
+      border-radius: 2px;
+      transition: background .3s, color .3s;
+    }
+    .about-pillar:hover {
+      background: var(--teal);
+      color: white;
+    }
+
+
+    /* =========================================================
+       PRODUCTS
+    ========================================================= */
+
+    .products {
+      background: var(--teal);
+      color: white;
+      overflow: hidden;
+    }
+
+    .products .eyebrow {
+      color: #ff6259;
+    }
+
+    .products .body-copy {
+      color: rgba(255,255,255,.68);
+    }
+
+    .products-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 50px;
+      margin-bottom: 70px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 25px;
+    }
+
+    .product-card {
+      position: relative;
+      min-height: 460px;
+      overflow: hidden;
+      background: var(--teal-dark);
+      group: product;
+    }
+
+    .product-card:nth-child(2),
+    .product-card:nth-child(3) {
+      min-height: 217px;
+    }
+
+    .product-card:nth-child(2) {
+      margin-bottom: 25px;
+    }
+
+    .product-card-image {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .product-card-image img {
+      height: 100%;
+      transition: transform 1s var(--ease);
+    }
+
+    .product-card:hover .product-card-image img {
+      transform: scale(1.08);
+    }
+
+    .product-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          to top,
+          rgba(0,0,0,.85),
+          rgba(0,0,0,.05) 70%
+        );
+    }
+
+    .product-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 35px;
+      transform: translateY(15px);
+      transition: transform .5s var(--ease);
+    }
+
+    .product-card:hover .product-content {
+      transform: translateY(0);
+    }
+
+    .product-tag {
+      color: #ff6259;
+      text-transform: uppercase;
+      font-size: 9px;
+      letter-spacing: .16em;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .product-name {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 30px;
+      letter-spacing: -.04em;
+    }
+
+    .product-text {
+      color: rgba(255,255,255,.7);
+      font-size: 12px;
+      line-height: 1.6;
+      margin-top: 8px;
+      max-width: 400px;
+    }
+
+
+    /* =========================================================
+       EXPERIENCE / NUMBERS
+    ========================================================= */
+
+    .experience {
+      background: var(--off-white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Ambient background glow orb */
+    .experience-glow {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(7,80,87,0.09) 0%, rgba(223,36,25,0.03) 60%, transparent 80%);
+      top: 50%;
+      right: -100px;
+      transform: translateY(-50%);
+      pointer-events: none;
+      filter: blur(40px);
+      animation: expGlowPulse 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes expGlowPulse {
+      0% { transform: translateY(-50%) scale(0.9); opacity: 0.7; }
+      100% { transform: translateY(-45%) scale(1.15); opacity: 1; }
+    }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 90px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Live status badge */
+    .exp-live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: rgba(7,80,87,0.06);
+      border: 1px solid rgba(7,80,87,0.15);
+      border-radius: 20px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 22px;
+    }
+
+    .exp-live-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--red);
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 rgba(223,36,25,0.7);
+      animation: livePulse 2s infinite;
+    }
+
+    @keyframes livePulse {
+      0% { box-shadow: 0 0 0 0 rgba(223,36,25,0.7); }
+      70% { box-shadow: 0 0 0 8px rgba(223,36,25,0); }
+      100% { box-shadow: 0 0 0 0 rgba(223,36,25,0); }
+    }
+
+    /* Capability tags under description */
+    .exp-capabilities {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 25px;
+      margin-bottom: 30px;
+    }
+
+    .exp-chip {
+      background: white;
+      border: 1px solid var(--border);
+      padding: 7px 13px;
+      border-radius: 3px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--black);
+      letter-spacing: .02em;
+      transition: all .35s var(--ease);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .exp-chip i {
+      color: var(--red);
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    .exp-chip:hover {
+      background: var(--teal);
+      color: white;
+      border-color: var(--teal);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px rgba(7,80,87,0.18);
+    }
+    .exp-chip:hover i { color: #ff6259; }
+
+    /* Stats Grid */
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      perspective: 1000px;
+    }
+
+    .stat {
+      background: white;
+      padding: 38px 30px 32px;
+      border: 1px solid rgba(16, 19, 19, 0.08);
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+      transition: transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s ease;
+      cursor: default;
+    }
+
+    .stat:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(7,80,87,0.12);
+      border-color: rgba(7,80,87,0.25);
+    }
+
+    /* Top accent sliding bar */
+    .stat-top-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--teal), var(--red));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .5s var(--ease);
+    }
+
+    .stat:hover .stat-top-bar {
+      transform: scaleX(1);
+    }
+
+    /* Watermark index number */
+    .stat-watermark {
+      position: absolute;
+      right: 18px;
+      top: 10px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 58px;
+      font-weight: 700;
+      color: rgba(7,80,87,0.05);
+      line-height: 1;
+      pointer-events: none;
+      transition: transform .5s var(--ease), color .4s ease;
+    }
+
+    .stat:hover .stat-watermark {
+      color: rgba(223,36,25,0.08);
+      transform: scale(1.1) translateX(-4px);
+    }
+
+    .stat-num-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+    }
+
+    .stat-number {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(48px, 5.2vw, 68px);
+      font-weight: 700;
+      line-height: 1;
+      color: var(--teal);
+      letter-spacing: -.06em;
+      transition: color .3s ease;
+    }
+
+    .stat:hover .stat-number {
+      color: var(--black);
+    }
+
+    .stat-plus {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--red);
+    }
+
+    .stat-label {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -.02em;
+      margin-top: 10px;
+      color: var(--black);
+    }
+
+    .stat-sub {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 4px;
+      line-height: 1.45;
+    }
+
+    /* Animated progress bar under stat */
+    .stat-progress {
+      width: 100%;
+      height: 4px;
+      background: rgba(16,19,19,0.06);
+      border-radius: 2px;
+      margin-top: 18px;
+      overflow: hidden;
+    }
+
+    .stat-progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--teal), var(--red));
+      border-radius: 2px;
+      transition: width 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .stat-progress.animated .stat-progress-bar {
+      width: var(--prog-w, 100%);
+    }
+
+
+    /* =========================================================
+       TEAM
+    ========================================================= */
+
+    .team {
+      background: var(--teal-dark);
+      color: white;
+      overflow: hidden;
+    }
+
+    .team-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 50px;
+      margin-bottom: 70px;
+    }
+
+    .team .body-copy {
+      color: rgba(255,255,255,.65);
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .team-card {
+      position: relative;
+      background: white;
+      color: var(--black);
+      overflow: hidden;
+    }
+
+    .team-image {
+      aspect-ratio: 4 / 5;
+      background:
+        linear-gradient(
+          135deg,
+          #d9e5e4,
+          #879e9e
+        );
+      overflow: hidden;
+    }
+
+    .team-image img {
+      height: 100%;
+      transition: transform .8s var(--ease);
+    }
+
+    .team-card:hover .team-image img {
+      transform: scale(1.06);
+    }
+
+    .team-info {
+      padding: 20px;
+    }
+
+    .team-name {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 19px;
+      letter-spacing: -.03em;
+    }
+
+    .team-role {
+      color: var(--red);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-top: 6px;
+    }
+
+    .team-number {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--red);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 10px;
+      z-index: 2;
+    }
+
+
+    /* =========================================================
+       ADVANTAGE
+    ========================================================= */
+
+    .advantage-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 100px;
+      align-items: start;
+    }
+
+    .advantage-items {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .advantage-card {
+      border: 1px solid var(--border);
+      padding: 35px 25px;
+      min-height: 250px;
+      transition:
+        background .4s ease,
+        color .4s ease,
+        transform .4s var(--ease);
+    }
+
+    .advantage-card:hover {
+      background: var(--teal);
+      color: white;
+      transform: translateY(-8px);
+    }
+
+    .advantage-icon {
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--red);
+      border-radius: 50%;
+      color: var(--red);
+      display: grid;
+      place-items: center;
+      margin-bottom: 55px;
+    }
+
+    .advantage-card h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .advantage-card p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .advantage-card:hover p {
+      color: rgba(255,255,255,.7);
+    }
+
+
+    /* =========================================================
+       CTA / CONTACT
+    ========================================================= */
+
+    .cta {
+      background: var(--teal-dark);
+      color: white;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* animated mesh bg on CTA */
+    .cta::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .cta-inner {
+      min-height: 560px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-left .eyebrow {
+      color: #ff6259;
+    }
+
+    .cta-title {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(46px, 6vw, 90px);
+      line-height: .9;
+      letter-spacing: -.07em;
+      max-width: 700px;
+      color: white;
+    }
+
+    .cta-title span {
+      color: #ff6259;
+    }
+
+    .cta-right {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .cta-contact-label {
+      font-size: 9px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.45);
+      margin-bottom: 22px;
+      margin-top: 40px;
+    }
+    .cta-contact-label:first-child { margin-top: 0; }
+
+    .cta-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: white;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      transition: color .3s ease, gap .3s var(--ease);
+      text-decoration: none;
+    }
+    .cta-contact-item:hover {
+      color: #ff6259;
+      gap: 20px;
+    }
+    .cta-contact-icon {
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+      flex-shrink: 0;
+      transition: background .3s, border-color .3s;
+    }
+    .cta-contact-item:hover .cta-contact-icon {
+      background: var(--red);
+      border-color: var(--red);
+    }
+
+    .cta-circle {
+      display: none; /* replaced by contact panel */
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-20px); }
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      background: #032f35;
+      color: white;
+      padding: 80px 0 30px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.3fr .7fr .7fr .9fr;
+      gap: 60px;
+      padding-bottom: 70px;
+    }
+
+    .footer-logo {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 42px;
+      letter-spacing: -.07em;
+    }
+
+    .footer-brand p {
+      color: rgba(255,255,255,.55);
+      max-width: 300px;
+      font-size: 13px;
+      line-height: 1.7;
+      margin-top: 20px;
+    }
+
+    .footer-title {
+      color: var(--red);
+      text-transform: uppercase;
+      font-size: 9px;
+      letter-spacing: .15em;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,.7);
+      font-size: 12px;
+      transition: color .3s ease, transform .3s var(--ease);
+    }
+
+    .footer-links a:hover {
+      color: white;
+      transform: translateX(5px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.12);
+      padding-top: 25px;
+      display: flex;
+      justify-content: space-between;
+      color: rgba(255,255,255,.4);
+      font-size: 10px;
+    }
+
+
+    /* =========================================================
+       SCROLL REVEAL
+    ========================================================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateX(-70px);
+      transition:
+        opacity 1s var(--ease),
+        transform 1s var(--ease);
+    }
+
+    .reveal.right {
+      transform: translateX(70px);
+    }
+
+    .reveal.up {
+      transform: translateY(70px);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translate(0);
+    }
+
+
+    /* =========================================================
+       MOBILE
+    ========================================================= */
+
+    @media (max-width: 1000px) {
+
+      .nav-links {
+        position: fixed;
+        inset: 0;
+        background: white;
+        flex-direction: column;
+        justify-content: center;
+        gap: 28px;
+        transform: translateX(100%);
+        transition: transform .6s var(--ease);
+      }
+
+      .nav-links.open {
+        transform: translateX(0);
+      }
+
+      .nav-links a {
+        font-size: 25px;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .mobile-toggle {
+        display: flex;
+        position: relative;
+        z-index: 3;
+      }
+
+      .hero-bottom,
+      .services-heading,
+      .products-header,
+      .team-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .about-grid,
+      .experience-grid,
+      .advantage-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+
+    @media (max-width: 650px) {
+
+      .container {
+        width: min(var(--container), calc(100% - 30px));
+      }
+
+      .section {
+        padding: 90px 0;
+      }
+
+      .hero {
+        min-height: 850px;
+      }
+
+      .hero-title {
+        font-size: clamp(65px, 20vw, 120px);
+        flex-wrap: wrap;
+      }
+
+      .hero-subtitle {
+        font-size: 28px;
+      }
+
+      .hero-bottom {
+        gap: 30px;
+      }
+
+      .hero-scroll {
+        display: none;
+      }
+
+      /* mobile services: card style with active touch glow */
+      .service {
+        grid-template-columns: 1fr auto;
+        gap: 16px;
+        padding: 24px 20px;
+        border-radius: 6px;
+        background: white;
+        border: 1px solid var(--border);
+        margin-bottom: 14px;
+        border-left: 3px solid var(--border);
+        transition: all .35s var(--ease);
+      }
+      .service:active, .service.mobile-active {
+        border-left-color: var(--teal);
+        background: #f0f7f7;
+        transform: scale(0.98);
+      }
+      .service-number {
+        display: none;
+      }
+      .service-description {
+        display: block;
+        font-size: 13px;
+        grid-column: 1 / -1;
+        color: var(--muted);
+      }
+      .service-name {
+        font-size: 20px;
+      }
+      .service-arrow {
+        width: 38px;
+        height: 38px;
+        background: var(--teal-light);
+        border-color: var(--teal-light);
+        color: var(--teal);
+      }
+
+      .about-image {
+        min-height: 430px;
+      }
+
+      .about-image-main {
+        height: 390px;
+        width: 85%;
+      }
+
+      .about-accent {
+        width: 120px;
+        height: 120px;
+      }
+
+      .products-grid {
+        display: block;
+      }
+
+      .product-card,
+      .product-card:nth-child(2),
+      .product-card:nth-child(3) {
+        min-height: 320px;
+        margin-bottom: 18px;
+        border-radius: 6px;
+      }
+
+      /* Mobile: always show tap prompt pill on products */
+      .product-card::after {
+        opacity: 0.9 !important;
+        transform: translateY(0) !important;
+        font-size: 8px !important;
+        padding: 5px 10px !important;
+        background: rgba(4, 60, 66, 0.85) !important;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .stat {
+        padding: 30px 24px;
+      }
+
+      /* Mobile: auto-fill top bar on scroll */
+      .stat.mobile-active .stat-top-bar {
+        transform: scaleX(1);
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .team-info {
+        padding: 14px 12px;
+      }
+      .team-name {
+        font-size: 15px;
+      }
+
+      .advantage-items {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .advantage-card {
+        padding: 28px 20px;
+        min-height: auto;
+        border-radius: 4px;
+      }
+
+      .advantage-card.mobile-active {
+        background: var(--teal);
+        color: white;
+      }
+      .advantage-card.mobile-active p {
+        color: rgba(255,255,255,.75);
+      }
+
+      .cta-inner {
+        grid-template-columns: 1fr;
+        padding: 60px 0;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+
+      /* Touch haptic press effects on all buttons & cards */
+      .btn:active, .nav-cta:active, .btn-wa-submit:active {
+        transform: scale(0.96) !important;
+      }
+      .product-card:active {
+        transform: scale(0.98);
+      }
+      .advantage-card:active {
+        transform: scale(0.98);
+      }
+    }
+
+
+    /* =========================================================
+       FAQ SECTION
+    ========================================================= */
+
+    .faq {
+      background: var(--white);
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 90px;
+      align-items: start;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: border-color .3s ease, box-shadow .3s ease;
+      background: white;
+    }
+
+    .faq-item.active {
+      border-color: var(--teal);
+      box-shadow: 0 8px 24px rgba(7,80,87,0.06);
+    }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      padding: 22px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--black);
+      cursor: pointer;
+      background: none;
+      border: none;
+      transition: color .3s ease;
+    }
+
+    .faq-item.active .faq-question {
+      color: var(--teal);
+    }
+
+    .faq-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--teal-light);
+      color: var(--teal);
+      display: grid;
+      place-items: center;
+      font-size: 16px;
+      flex-shrink: 0;
+      transition: transform .35s var(--ease), background .35s ease, color .35s ease;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+      background: var(--red);
+      color: white;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s var(--ease), padding .3s ease;
+      padding: 0 24px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .faq-item.active .faq-answer {
+      padding-bottom: 22px;
+    }
+
+
+    /* =========================================================
+       FLOATING WHATSAPP BUTTON
+    ========================================================= */
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 990;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      transition: transform .35s var(--ease);
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-4px) scale(1.04);
+    }
+
+    .wa-btn {
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+      position: relative;
+    }
+
+    .wa-btn::before {
+      content: "";
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px solid #25D366;
+      opacity: 0.6;
+      animation: waPulse 2s infinite;
+    }
+
+    @keyframes waPulse {
+      0% { transform: scale(1); opacity: 0.8; }
+      100% { transform: scale(1.35); opacity: 0; }
+    }
+
+    .wa-btn svg {
+      width: 32px;
+      height: 32px;
+      fill: white;
+    }
+
+    .wa-tooltip {
+      background: white;
+      color: var(--black);
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+      border: 1px solid var(--border);
+      white-space: nowrap;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .wa-status-dot {
+      width: 6px;
+      height: 6px;
+      background: #25D366;
+      border-radius: 50%;
+    }
+
+
+    /* =========================================================
+       MODALS (QUOTE & PRODUCT DETAILS)
+    ========================================================= */
+
+    .nzeru-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 60, 66, 0.75);
+      backdrop-filter: blur(8px);
+      z-index: 10000;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .35s ease, visibility .35s ease;
+    }
+
+    .nzeru-modal-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .nzeru-modal {
+      background: white;
+      border-radius: 6px;
+      width: 100%;
+      max-width: 680px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      padding: 45px 40px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+      transform: translateY(30px) scale(0.96);
+      transition: transform .4s var(--ease);
+    }
+
+    .nzeru-modal-overlay.open .nzeru-modal {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--off-white);
+      color: var(--black);
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      cursor: pointer;
+      transition: all .25s ease;
+    }
+
+    .modal-close:hover {
+      background: var(--red);
+      color: white;
+      border-color: var(--red);
+      transform: rotate(90deg);
+    }
+
+    /* Modal Form Styles */
+    .modal-header {
+      margin-bottom: 28px;
+    }
+
+    .modal-title {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 28px;
+      letter-spacing: -.04em;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+
+    .modal-subtitle {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--black);
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 13px 15px;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--black);
+      background: var(--off-white);
+      transition: border-color .3s ease, background .3s ease;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      outline: none;
+      border-color: var(--teal);
+      background: white;
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .btn-wa-submit {
+      background: #25D366;
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 22px;
+      border-radius: 3px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: transform .3s var(--ease), background .3s ease;
+    }
+
+    .btn-wa-submit:hover {
+      background: #1eb956;
+      transform: translateY(-2px);
+    }
+
+    /* Product Modal Specifics */
+    .product-modal-badge {
+      display: inline-block;
+      color: var(--red);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .product-modal-img {
+      width: 100%;
+      height: 240px;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 22px;
+      background: var(--teal-dark);
+    }
+
+    .product-modal-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-feature-list {
+      list-style: none;
+      margin: 18px 0 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .product-feature-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--black);
+    }
+
+    .product-feature-item i {
+      color: var(--red);
+      font-style: normal;
+      font-weight: bold;
+    }
+
+    .product-card {
+      cursor: pointer;
+    }
+
+    .product-card::after {
+      content: "CLICK TO VIEW DETAILS ↗";
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(6px);
+      color: white;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      padding: 6px 12px;
+      border-radius: 20px;
+      opacity: 0;
+      transform: translateY(-6px);
+      transition: all .35s var(--ease);
+      z-index: 5;
+    }
+
+    .product-card:hover::after {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1000px) {
+      .faq-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .nzeru-modal {
+        padding: 30px 20px;
+      }
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+      .whatsapp-float .wa-tooltip {
+        display: none;
+      }
+    }
+
+
+    /* =========================================================
+       REDUCED MOTION
+    ========================================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- =======================================================
+       LOADER
+  ======================================================== -->
+
+  <div class="loader" id="loader">
+    <div class="loader-logo">
+      <span>N</span>
+      <span>Z</span>
+      <span>E</span>
+      <span>R</span>
+      <span>U</span>
+    </div>
+  </div>
+
+
+  <!-- =======================================================
+       NAVIGATION
+  ======================================================== -->
+
+  <header class="nav" id="nav">
+
+    <div class="container nav-inner">
+
+      <a href="#home" class="logo">
+        <img src="assets/logo/logonzeru.jpeg" alt="Nzeru Digital" style="height:44px;width:auto;display:block;object-fit:contain;" />
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#products">Products</a>
+        <a href="#experience">Experience</a>
+        <a href="#team">Team</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+
+      </nav>
+
+      <button type="button" class="nav-cta" data-open-modal="quote">
+        GET STARTED
+      </button>
+
+      <button class="mobile-toggle" id="mobileToggle">
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- =======================================================
+       HERO
+  ======================================================== -->
+
+  <main>
+
+    <section class="hero" id="home">
+
+      <canvas id="particle-canvas"></canvas>
+
+      <div class="container hero-content">
+
+        <div class="hero-kicker">
+          <i></i>
+          SMART DIGITAL SOLUTIONS
+        </div>
+
+        <h1 class="hero-title" aria-label="Nzeru">
+
+          <span>N</span>
+          <span>Z</span>
+          <span>E</span>
+          <span>R</span>
+          <span>U</span>
+
+        </h1>
+
+        <h2 class="hero-subtitle">
+          Smart systems.
+          Secure businesses.
+          <span>Better decisions.</span>
+        </h2>
+
+        <div class="hero-bottom">
+
+          <p class="hero-description">
+            We build practical digital solutions that help
+            businesses, schools and healthcare providers
+            move from manual processes to smarter systems.
+          </p>
+
+          <a href="#services" class="btn">
+            <span>EXPLORE NZERU →</span>
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="hero-scroll">
+        SCROLL TO EXPLORE
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SERVICES
+    ====================================================== -->
+
+    <section class="section services" id="services">
+
+      <div class="container">
+
+        <div class="services-heading reveal">
+
+          <div>
+            <div class="eyebrow">01 / What We Do</div>
+
+            <h2 class="section-title">
+              Technology built around
+              <span>your business.</span>
+            </h2>
+          </div>
+
+          <p class="body-copy">
+            From software and business systems to cybersecurity
+            and AI-powered insights, we build technology that
+            is practical, secure and useful.
+          </p>
+
+        </div>
+
+
+        <div class="services-list">
+
+          <a href="#contact" class="service reveal">
+
+            <div class="service-number">01</div>
+
+            <div class="service-name">
+              Nzeru Solutions
+            </div>
+
+            <div class="service-description">
+              Software development, websites and
+              custom digital solutions.
+            </div>
+
+            <div class="service-arrow">
+              ↗
+            </div>
+
+          </a>
+
+
+          <a href="#contact" class="service reveal">
+
+            <div class="service-number">02</div>
+
+            <div class="service-name">
+              Nzeru Systems
+            </div>
+
+            <div class="service-description">
+              Subscription-based business and
+              management systems.
+            </div>
+
+            <div class="service-arrow">
+              ↗
+            </div>
+
+          </a>
+
+
+          <a href="#contact" class="service reveal">
+
+            <div class="service-number">03</div>
+
+            <div class="service-name">
+              Nzeru Cyber
+            </div>
+
+            <div class="service-description">
+              Cybersecurity audits, protection,
+              awareness and training.
+            </div>
+
+            <div class="service-arrow">
+              ↗
+            </div>
+
+          </a>
+
+
+          <a href="#contact" class="service reveal">
+
+            <div class="service-number">04</div>
+
+            <div class="service-name">
+              Nzeru Intelligence
+            </div>
+
+            <div class="service-description">
+              Data analytics, reporting and
+              AI-powered business insights.
+            </div>
+
+            <div class="service-arrow">
+              ↗
+            </div>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         ABOUT
+    ====================================================== -->
+
+    <section class="section" id="about">
+
+      <div class="container about-grid">
+
+        <div class="about-image reveal">
+
+          <div class="about-number">02</div>
+
+          <div class="about-image-main">
+            <img
+              src="assets/team/joel.jpeg"
+              alt="Nzeru Digital team"
+            />
+          </div>
+
+          <!-- floating stat badges -->
+          <div class="about-stat" style="bottom:80px;left:-10px;">
+            <div class="about-stat-num">50+</div>
+            <div class="about-stat-label">Projects Delivered</div>
+          </div>
+
+          <div class="about-stat" style="top:60px;left:10px;">
+            <div class="about-stat-num">4</div>
+            <div class="about-stat-label">Core Services</div>
+          </div>
+
+          <div class="about-strip"></div>
+          <div class="about-accent"></div>
+
+        </div>
+
+
+        <div class="about-content reveal right">
+
+          <div class="eyebrow">02 / About Nzeru</div>
+
+          <h2 class="section-title">
+            Technology that replaces
+            confusion with <span>clarity.</span>
+          </h2>
+
+          <p class="body-copy">
+            Nzeru Digital is a Malawi-based technology company
+            helping organizations move away from manual,
+            stressful and paper-based processes toward
+            simple, intelligent and secure digital systems.
+          </p>
+
+          <br>
+
+          <p class="body-copy">
+            We combine software development, business systems,
+            cybersecurity and data intelligence to help
+            organizations operate better and make better decisions.
+          </p>
+
+          <div class="about-pillars">
+            <span class="about-pillar">Software Dev</span>
+            <span class="about-pillar">SaaS Systems</span>
+            <span class="about-pillar">Cybersecurity</span>
+            <span class="about-pillar">AI &amp; Data</span>
+          </div>
+
+          <a href="#contact" class="btn">
+            <span>ABOUT NZERU →</span>
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PRODUCTS
+    ====================================================== -->
+
+    <section class="section products" id="products">
+
+      <div class="container">
+
+        <div class="products-header reveal">
+
+          <div>
+
+            <div class="eyebrow">
+              03 / Our Products
+            </div>
+
+            <h2 class="section-title">
+              Digital products
+              made for <span>real life.</span>
+            </h2>
+
+          </div>
+
+          <p class="body-copy">
+            Explore the systems and digital products
+            we build to solve real problems.
+          </p>
+
+        </div>
+
+
+        <div class="products-grid">
+
+
+          <!-- PRODUCT 1 -->
+
+          <article class="product-card reveal" data-product-id="business">
+
+            <div class="product-card-image">
+
+              <img
+                src="assets/products/product-1.jpg"
+                alt="Nzeru Business Management product"
+              />
+
+            </div>
+
+            <div class="product-overlay"></div>
+
+            <div class="product-content">
+
+              <div class="product-tag">
+                Nzeru Systems
+              </div>
+
+              <h3 class="product-name">
+                Business Management
+              </h3>
+
+              <p class="product-text">
+                A smarter way to manage everyday
+                business operations.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <div>
+
+            <!-- PRODUCT 2 -->
+
+            <article class="product-card reveal right" data-product-id="school">
+
+              <div class="product-card-image">
+
+                <img
+                  src="assets/products/product-2.jpg"
+                  alt="Nzeru School Systems product"
+                />
+
+              </div>
+
+              <div class="product-overlay"></div>
+
+              <div class="product-content">
+
+                <div class="product-tag">
+                  Nzeru Systems
+                </div>
+
+                <h3 class="product-name">
+                  School Systems
+                </h3>
+
+                <p class="product-text">
+                  Digital tools designed to simplify
+                  school administration.
+                </p>
+
+              </div>
+
+            </article>
+
+            <!-- PRODUCT 3 -->
+
+            <article class="product-card reveal" data-product-id="savings">
+
+              <div class="product-card-image">
+
+                <img
+                  src="assets/products/nzeru savings.jpeg"
+                  alt="Nzeru Savings product"
+                />
+
+              </div>
+
+              <div class="product-overlay"></div>
+
+              <div class="product-content">
+
+                <div class="product-tag">
+                  Nzeru Systems
+                </div>
+
+                <h3 class="product-name">
+                  Nzeru Savings
+                </h3>
+
+                <p class="product-text">
+                  Smart savings management
+                  for individuals and groups.
+                </p>
+
+              </div>
+
+            </article>
+
+          </div>
+
+
+          <!-- PRODUCT 4 & 5 — full-width row -->
+
+          <div style="grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:25px;margin-top:0;">
+
+            <article class="product-card reveal" data-product-id="bridge">
+
+              <div class="product-card-image">
+
+                <img
+                  src="assets/products/bridge sign.jpeg"
+                  alt="Bridge Sign product"
+                />
+
+              </div>
+
+              <div class="product-overlay"></div>
+
+              <div class="product-content">
+
+                <div class="product-tag">
+                  Nzeru Solutions
+                </div>
+
+                <h3 class="product-name">
+                  Bridge Sign
+                </h3>
+
+                <p class="product-text">
+                  Digital signage and display
+                  solutions for modern spaces.
+                </p>
+
+              </div>
+
+            </article>
+
+
+            <article class="product-card reveal right" data-product-id="data">
+
+              <div class="product-card-image">
+
+                <img
+                  src="assets/products/product-2.jpeg"
+                  alt="Nzeru School Systems"
+                />
+
+              </div>
+
+              <div class="product-overlay"></div>
+
+              <div class="product-content">
+
+                <div class="product-tag">
+                  Nzeru Intelligence
+                </div>
+
+                <h3 class="product-name">
+                  Data &amp; Insights
+                </h3>
+
+                <p class="product-text">
+                  Turn business data into useful
+                  information and better decisions.
+                </p>
+
+              </div>
+
+            </article>
+
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         EXPERIENCE
+    ====================================================== -->
+
+    <section class="section experience" id="experience">
+
+      <div class="experience-glow"></div>
+
+      <div class="container experience-grid">
+
+        <div class="reveal">
+
+          <div class="exp-live-badge">
+            <span class="exp-live-dot"></span>
+            Proven Track Record
+          </div>
+
+          <div class="eyebrow">
+            04 / Our Experience
+          </div>
+
+          <h2 class="section-title">
+            Real systems.
+            <span>Real impact.</span>
+          </h2>
+
+          <br>
+
+          <p class="body-copy">
+            Our team brings together skills in software
+            development, cybersecurity, data analytics,
+            AI insights, system integration and IT consulting.
+          </p>
+
+          <div class="exp-capabilities">
+            <span class="exp-chip"><i>+</i> Custom Software</span>
+            <span class="exp-chip"><i>+</i> SaaS Platforms</span>
+            <span class="exp-chip"><i>+</i> Cyber Defense</span>
+            <span class="exp-chip"><i>+</i> AI &amp; Analytics</span>
+            <span class="exp-chip"><i>+</i> Cloud Integration</span>
+          </div>
+
+          <a href="#contact" class="btn">
+            <span>WORK WITH US →</span>
+          </a>
+
+        </div>
+
+
+        <div class="stats reveal right" id="statsGrid">
+
+          <!-- STAT 1 -->
+          <div class="stat" data-tilt>
+            <div class="stat-top-bar"></div>
+            <div class="stat-watermark">01</div>
+            <div class="stat-num-wrap">
+              <div class="stat-number counter" data-target="50">0</div>
+              <span class="stat-plus">+</span>
+            </div>
+            <div class="stat-label">Projects Completed</div>
+            <div class="stat-sub">Custom systems, SaaS tools &amp; digital solutions</div>
+            <div class="stat-progress" style="--prog-w: 92%;">
+              <div class="stat-progress-bar"></div>
+            </div>
+          </div>
+
+
+          <!-- STAT 2 -->
+          <div class="stat" data-tilt>
+            <div class="stat-top-bar"></div>
+            <div class="stat-watermark">02</div>
+            <div class="stat-num-wrap">
+              <div class="stat-number counter" data-target="30">0</div>
+              <span class="stat-plus">+</span>
+            </div>
+            <div class="stat-label">Satisfied Clients</div>
+            <div class="stat-sub">Businesses, schools &amp; institutions served</div>
+            <div class="stat-progress" style="--prog-w: 84%;">
+              <div class="stat-progress-bar"></div>
+            </div>
+          </div>
+
+
+          <!-- STAT 3 -->
+          <div class="stat" data-tilt>
+            <div class="stat-top-bar"></div>
+            <div class="stat-watermark">03</div>
+            <div class="stat-num-wrap">
+              <div class="stat-number counter" data-target="5">0</div>
+              <span class="stat-plus">+</span>
+            </div>
+            <div class="stat-label">Key Sectors</div>
+            <div class="stat-sub">Finance, Education, Retail, Health &amp; Tech</div>
+            <div class="stat-progress" style="--prog-w: 78%;">
+              <div class="stat-progress-bar"></div>
+            </div>
+          </div>
+
+
+          <!-- STAT 4 -->
+          <div class="stat" data-tilt>
+            <div class="stat-top-bar"></div>
+            <div class="stat-watermark">04</div>
+            <div class="stat-num-wrap">
+              <div class="stat-number counter" data-target="4">0</div>
+              <span class="stat-plus">+</span>
+            </div>
+            <div class="stat-label">Core Pillars</div>
+            <div class="stat-sub">Solutions, Systems, Cyber &amp; Intelligence</div>
+            <div class="stat-progress" style="--prog-w: 100%;">
+              <div class="stat-progress-bar"></div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         TEAM
+    ====================================================== -->
+
+    <section class="section team" id="team">
+
+      <div class="container">
+
+        <div class="team-header reveal">
+
+          <div>
+
+            <div class="eyebrow">
+              05 / The Team
+            </div>
+
+            <h2 class="section-title">
+              Focused minds.
+              <span>Shared vision.</span>
+            </h2>
+
+          </div>
+
+          <p class="body-copy">
+            A multidisciplinary team building practical
+            digital solutions for businesses and institutions.
+          </p>
+
+        </div>
+
+
+        <div class="team-grid">
+
+
+          <!-- JOEL -->
+
+          <article class="team-card reveal">
+
+            <div class="team-number">
+              01
+            </div>
+
+            <div class="team-image">
+
+              <img
+                src="assets/team/joel.jpeg"
+                alt="Joel Jackson Chaula"
+              />
+
+            </div>
+
+            <div class="team-info">
+
+              <h3 class="team-name">
+                Joel Jackson Chaula
+              </h3>
+
+              <p class="team-role">
+                CEO & Founder
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- JABULANI -->
+
+          <article class="team-card reveal up">
+
+            <div class="team-number">
+              02
+            </div>
+
+            <div class="team-image">
+
+              <img
+                src="assets/team/jabulani.jpeg"
+                alt="Jabulani Benson Mayena"
+              />
+
+            </div>
+
+            <div class="team-info">
+
+              <h3 class="team-name">
+                Jabulani Benson Mayena
+              </h3>
+
+              <p class="team-role">
+                CTO & Co-Founder
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- BLESSINGS -->
+
+          <article class="team-card reveal up">
+
+            <div class="team-number">
+              03
+            </div>
+
+            <div class="team-image">
+
+              <img
+                src="assets/team/blessings.jpeg"
+                alt="Blessings Ghambi"
+              />
+
+            </div>
+
+            <div class="team-info">
+
+              <h3 class="team-name">
+                Blessings Ghambi
+              </h3>
+
+              <p class="team-role">
+                CPO & Co-Founder
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- THANDEKA -->
+
+          <article class="team-card reveal up">
+
+            <div class="team-number">
+              04
+            </div>
+
+            <div class="team-image">
+
+              <img
+                src="assets/team/thandeka.jpeg"
+                alt="Thandeka Malink"
+              />
+
+            </div>
+
+            <div class="team-info">
+
+              <h3 class="team-name">
+                Thandeka Malink
+              </h3>
+
+              <p class="team-role">
+                CMO
+              </p>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         ADVANTAGE
+    ====================================================== -->
+
+    <section class="section" id="advantage">
+
+      <div class="container advantage-grid">
+
+        <div class="reveal">
+
+          <div class="eyebrow">
+            06 / Our Advantage
+          </div>
+
+          <h2 class="section-title">
+            One company.
+            <span>Three advantages.</span>
+          </h2>
+
+          <br>
+
+          <p class="body-copy">
+            We combine technology, security and intelligence
+            so your digital systems don't just work —
+            they create value.
+          </p>
+
+        </div>
+
+
+        <div class="advantage-items">
+
+          <div class="advantage-card reveal">
+
+            <div class="advantage-icon">
+              ↗
+            </div>
+
+            <h3>
+              Integrated Solutions
+            </h3>
+
+            <p>
+              Software, systems and data designed
+              to work together.
+            </p>
+
+          </div>
+
+
+          <div class="advantage-card reveal">
+
+            <div class="advantage-icon">
+              ◇
+            </div>
+
+            <h3>
+              Security First
+            </h3>
+
+            <p>
+              Protecting your digital environment
+              at every level.
+            </p>
+
+          </div>
+
+
+          <div class="advantage-card reveal">
+
+            <div class="advantage-icon">
+              +
+            </div>
+
+            <h3>
+              Data That Speaks
+            </h3>
+
+            <p>
+              Turning information into insights
+              that support better decisions.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    <!-- =====================================================
+         FAQ
+    ====================================================== -->
+
+    <section class="section faq" id="faq">
+
+      <div class="container faq-grid">
+
+        <div class="reveal">
+
+          <div class="eyebrow">
+            07 / Common Questions
+          </div>
+
+          <h2 class="section-title">
+            Clear answers to <span>your questions.</span>
+          </h2>
+
+          <br>
+
+          <p class="body-copy">
+            Everything you need to know about working with Nzeru, our software rollout timelines, data security, and ongoing technical support.
+          </p>
+
+          <br>
+
+          <button type="button" class="btn" data-open-modal="quote">
+            <span>HAVE MORE QUESTIONS? →</span>
+          </button>
+
+        </div>
+
+
+        <div class="faq-list reveal right">
+
+          <!-- FAQ 1 -->
+          <div class="faq-item active">
+            <button type="button" class="faq-question">
+              <span>What types of organizations does Nzeru work with?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer" style="max-height: 200px;">
+              We partner with businesses of all sizes, academic institutions (primary to tertiary schools), financial and savings groups (SACCOs &amp; VSLAs), healthcare providers, and retail operations across Malawi and the surrounding region.
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>How do your SaaS products (School, Savings, Business) work?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Our products are delivered as secure, cloud-hosted software subscriptions. There is zero hardware burden on your side — we take care of server deployment, real-time data backups, security patches, and full staff onboarding.
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>Can Nzeru build custom software tailored to our business?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Absolutely. Through Nzeru Solutions, our development team designs custom web portals, mobile apps, and enterprise management tools mapped directly to your unique operational workflow.
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>How do you protect our confidential business data?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Security is built into our architecture from day one. We enforce end-to-end data encryption, multi-factor authentication, granular role permissions, and regular automated off-site backups with strict privacy compliance.
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>How quickly can we get started or schedule a live demo?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              You can get started immediately. Click 'Get Started' or message us on WhatsApp at +265 992 579 666. We can schedule a personalized live product walkthrough or consultation within 24 hours.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CTA
+    ====================================================== -->
+
+    <section class="section cta" id="contact">
+
+      <div class="container cta-inner">
+
+        <!-- LEFT: headline + CTA -->
+        <div class="cta-left reveal">
+
+          <div class="eyebrow">08 / Let's Build</div>
+
+          <h2 class="cta-title">
+            Ready to
+            <span>transform</span>
+            your business?
+          </h2>
+
+          <br>
+
+          <button type="button" class="btn" style="background:var(--red);" data-open-modal="quote">
+            <span>LET'S GET STARTED →</span>
+          </button>
+
+        </div>
+
+        <!-- RIGHT: contact details -->
+        <div class="cta-right reveal right">
+
+          <div class="cta-contact-label">Call Us</div>
+
+          <a href="tel:+265881103561" class="cta-contact-item">
+            <span class="cta-contact-icon">✆</span>
+            +265 881 103 561
+          </a>
+          <a href="tel:+265992579666" class="cta-contact-item">
+            <span class="cta-contact-icon">✆</span>
+            +265 992 579 666
+          </a>
+          <a href="tel:+265883414246" class="cta-contact-item">
+            <span class="cta-contact-icon">✆</span>
+            +265 883 414 246
+          </a>
+          <a href="tel:+265982842267" class="cta-contact-item">
+            <span class="cta-contact-icon">✆</span>
+            +265 982 842 267
+          </a>
+
+          <div class="cta-contact-label">Email</div>
+
+          <a href="mailto:nzerudigitalsytems@gmail.com" class="cta-contact-item">
+            <span class="cta-contact-icon">✉</span>
+            nzerudigitalsytems@gmail.com
+          </a>
+
+          <div class="cta-contact-label">Location</div>
+
+          <div class="cta-contact-item" style="cursor:default;">
+            <span class="cta-contact-icon">⚑</span>
+            Malawi, Africa
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-top">
+
+
+        <div class="footer-brand">
+
+          <div class="footer-logo">
+            NZERU
+          </div>
+
+          <p>
+            Smart systems.
+            Secure businesses.
+            Better decisions.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <div class="footer-title">
+            Explore
+          </div>
+
+          <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#products">Products</a>
+            <a href="#faq">FAQ</a>
+          </div>
+
+        </div>
+
+
+        <div>
+
+          <div class="footer-title">
+            Company
+          </div>
+
+          <div class="footer-links">
+            <a href="#experience">Experience</a>
+            <a href="#team">Team</a>
+            <a href="#contact">Contact</a>
+          </div>
+
+        </div>
+
+
+        <div>
+
+          <div class="footer-title">
+            Contact
+          </div>
+
+          <div class="footer-links">
+            <a href="tel:+265881103561">+265 881 103 561</a>
+            <a href="tel:+265992579666">+265 992 579 666</a>
+            <a href="tel:+265883414246">+265 883 414 246</a>
+            <a href="tel:+265982842267">+265 982 842 267</a>
+            <a href="mailto:nzerudigitalsytems@gmail.com">nzerudigitalsytems@gmail.com</a>
+            <span style="color:rgba(255,255,255,.4);font-size:11px;">Malawi, Africa</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <span>
+          © 2026 Nzeru Digital Solutions.
+          All rights reserved.
+        </span>
+
+        <span>
+          Built with purpose.
+        </span>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- =======================================================
+       JAVASCRIPT
+  ======================================================== -->
+
+  <!-- =======================================================
+       FLOATING WHATSAPP BUTTON
+  ======================================================== -->
+
+  <a
+    href="https://wa.me/265992579666?text=Hello%20Nzeru%20Digital!%20I%20would%20like%20to%20inquire%20about%20your%20software%20and%20digital%20solutions."
+    target="_blank"
+    rel="noopener noreferrer"
+    class="whatsapp-float"
+    aria-label="Chat with Nzeru Digital on WhatsApp"
+  >
+    <div class="wa-tooltip">
+      <span class="wa-status-dot"></span>
+      Chat with Nzeru
+    </div>
+    <div class="wa-btn">
+      <svg viewBox="0 0 24 24">
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+      </svg>
+    </div>
+  </a>
+
+
+  <!-- =======================================================
+       CONSULTATION & QUOTE MODAL
+  ======================================================== -->
+
+  <div class="nzeru-modal-overlay" id="quoteModal">
+
+    <div class="nzeru-modal">
+
+      <button type="button" class="modal-close" id="closeQuoteModal">&times;</button>
+
+      <div class="modal-header">
+        <div class="eyebrow" style="margin-bottom:8px;">Let's Connect</div>
+        <h3 class="modal-title">Request a Consultation</h3>
+        <p class="modal-subtitle">Tell us about your project or system requirements. Our technical team will get back to you promptly.</p>
+      </div>
+
+      <form id="quoteForm">
+
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label class="form-label" for="qName">Full Name *</label>
+            <input type="text" id="qName" class="form-input" placeholder="e.g. John Banda" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="qOrg">Company / School</label>
+            <input type="text" id="qOrg" class="form-input" placeholder="e.g. Apex Academy" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="qPhone">WhatsApp / Phone *</label>
+            <input type="tel" id="qPhone" class="form-input" placeholder="+265 999 000 000" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="qEmail">Email Address</label>
+            <input type="email" id="qEmail" class="form-input" placeholder="john@example.com" />
+          </div>
+
+          <div class="form-group full">
+            <label class="form-label" for="qService">Service / Product Needed</label>
+            <select id="qService" class="form-select">
+              <option value="Custom Software Development">Custom Software Development (Nzeru Solutions)</option>
+              <option value="School Management System">School Systems (EdTech Portal)</option>
+              <option value="Nzeru Savings">Nzeru Savings (FinTech Ledger)</option>
+              <option value="Business Management SaaS">Business Management (ERP / POS / Inventory)</option>
+              <option value="Bridge Sign">Bridge Sign (Digital Signage)</option>
+              <option value="Cybersecurity Audit & Training">Cybersecurity Audit &amp; Training (Nzeru Cyber)</option>
+              <option value="Data Analytics & AI Insights">Data Analytics &amp; AI Insights (Nzeru Intelligence)</option>
+            </select>
+          </div>
+
+          <div class="form-group full">
+            <label class="form-label" for="qMsg">Project Details / Message</label>
+            <textarea id="qMsg" class="form-textarea" placeholder="Briefly describe your requirements, timeline, or current challenges..."></textarea>
+          </div>
+
+        </div>
+
+        <div class="modal-actions">
+          <button type="submit" class="btn-wa-submit">
+            <span>Send via WhatsApp ↗</span>
+          </button>
+          <button type="button" class="btn" id="emailDraftBtn" style="background:var(--black);">
+            <span>Send via Email ✉</span>
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <!-- =======================================================
+       PRODUCT DETAILS MODAL
+  ======================================================== -->
+
+  <div class="nzeru-modal-overlay" id="productModal">
+
+    <div class="nzeru-modal">
+
+      <button type="button" class="modal-close" id="closeProductModal">&times;</button>
+
+      <div class="product-modal-badge" id="pModalBadge">Nzeru Systems</div>
+      <h3 class="modal-title" id="pModalTitle">Product Name</h3>
+      <p class="modal-subtitle" id="pModalTagline">Product short tagline</p>
+
+      <div class="product-modal-img" style="margin-top:18px;">
+        <img id="pModalImg" src="" alt="Nzeru Product Preview" />
+      </div>
+
+      <p class="body-copy" id="pModalDesc" style="font-size:13px;"></p>
+
+      <h4 style="font-family:'Space Grotesk',sans-serif;font-size:15px;margin-top:20px;letter-spacing:-.02em;">Key Features &amp; Capabilities:</h4>
+      <ul class="product-feature-list" id="pModalFeatures">
+        <!-- populated dynamically -->
+      </ul>
+
+      <div class="modal-actions">
+        <button type="button" class="btn" id="pModalDemoBtn">
+          <span>REQUEST LIVE DEMO →</span>
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =======================================================
+       JAVASCRIPT
+  ======================================================== -->
+
+  <script>
+
+    /* =====================================================
+       PRODUCT CATALOG DATA
+    ====================================================== */
+
+    const PRODUCTS_DATA = {
+      business: {
+        badge: "Nzeru Systems / Enterprise SaaS",
+        title: "Business Management System",
+        tagline: "Centralized operations, real-time inventory, sales and financial control.",
+        image: "assets/products/product-1.jpg",
+        desc: "Designed specifically for growing African businesses to eliminate paperwork, control leakages, and give directors complete visibility over multiple branches from any phone or computer.",
+        features: [
+          "Real-time multi-branch stock and inventory management",
+          "Automated point-of-sale (POS) and invoice generation",
+          "Expense tracking, profit/loss and cash-flow reports",
+          "Staff shift attendance and role-based access security",
+          "Automated weekly director summaries via WhatsApp/Email"
+        ]
+      },
+      school: {
+        badge: "Nzeru Systems / EdTech",
+        title: "School Management System",
+        tagline: "All-in-one digital campus portal for schools, colleges & academies.",
+        image: "assets/products/product-2.jpg",
+        desc: "A modern school administration system that removes the stress of end-of-term reporting, fee tracking, and parent communication. Accessible securely on desktop and mobile.",
+        features: [
+          "Automated terminal report card generator with grading curves",
+          "Student profiles, medical records and digital admissions",
+          "Fee balance tracking with instant SMS payment receipts",
+          "Daily attendance registers with parent notification triggers",
+          "Teacher timetable planner and exam marks entry portal"
+        ]
+      },
+      savings: {
+        badge: "Nzeru Systems / FinTech",
+        title: "Nzeru Savings Ledger",
+        tagline: "Secure digital management for SACCOs, VSLAs, and investment clubs.",
+        image: "assets/products/nzeru savings.jpeg",
+        desc: "Replaces manual paper logbooks with an immutable, transparent digital ledger. Empowers savings groups to accurately track contributions, disburse loans, and calculate interest distributions.",
+        features: [
+          "Member contribution logs with instant digital receipts",
+          "Automated loan repayment calculators with interest tracking",
+          "Bank-grade encrypted audit trails with multi-admin approvals",
+          "End-of-cycle share-out dividend distribution generator",
+          "Exportable PDF and Excel financial health reports"
+        ]
+      },
+      bridge: {
+        badge: "Nzeru Solutions / Smart Displays",
+        title: "Bridge Sign Digital Network",
+        tagline: "Cloud-managed digital signage and multimedia broadcast displays.",
+        image: "assets/products/bridge sign.jpeg",
+        desc: "Transform standard TV screens in bank branches, school receptions, hospitals, and corporate lobbies into smart broadcast channels managed from a single central web dashboard.",
+        features: [
+          "Remote content updates to unlimited screens in real time",
+          "Scheduled playlists for videos, posters, announcements & notices",
+          "Live currency exchange rates, weather and news RSS feeds",
+          "Instant emergency broadcast takeover alerts",
+          "Hardware-agnostic plug-and-play setup"
+        ]
+      },
+      data: {
+        badge: "Nzeru Intelligence / AI & Analytics",
+        title: "Data & Insights Engine",
+        tagline: "Turn messy operational data into predictive business intelligence.",
+        image: "assets/products/product-2.jpeg",
+        desc: "We build custom analytics pipelines that aggregate data across your sales, supply chain, and customer interactions to uncover actionable revenue opportunities and reduce operational waste.",
+        features: [
+          "Custom interactive executive dashboards with KPI alerts",
+          "Predictive inventory reorder triggers and demand forecasting",
+          "Customer churn analysis and retention scoring",
+          "Automated data consolidation from spreadsheets and legacy databases",
+          "Executive weekly AI digests with plain-English insights"
+        ]
+      }
+    };
+
+
+    /* =====================================================
+       MODAL CONTROLLERS
+    ====================================================== */
+
+    const quoteModal = document.getElementById('quoteModal');
+    const productModal = document.getElementById('productModal');
+    const closeQuoteBtn = document.getElementById('closeQuoteModal');
+    const closeProductBtn = document.getElementById('closeProductModal');
+
+    function openModal(modal) {
+      modal.classList.add('open');
+      document.body.classList.add('no-scroll');
+    }
+
+    function closeModal(modal) {
+      modal.classList.remove('open');
+      document.body.classList.remove('no-scroll');
+    }
+
+    // Bind all buttons with data-open-modal="quote"
+    document.querySelectorAll('[data-open-modal="quote"]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal(quoteModal);
+      });
+    });
+
+    closeQuoteBtn.addEventListener('click', () => closeModal(quoteModal));
+    closeProductBtn.addEventListener('click', () => closeModal(productModal));
+
+    // Close on overlay backdrop click
+    [quoteModal, productModal].forEach(modal => {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal(modal);
+      });
+    });
+
+    // Close on ESC key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeModal(quoteModal);
+        closeModal(productModal);
+      }
+    });
+
+    // Product Card Clicks
+    document.querySelectorAll('[data-product-id]').forEach(card => {
+      card.addEventListener('click', () => {
+        const id = card.getAttribute('data-product-id');
+        const data = PRODUCTS_DATA[id];
+        if (!data) return;
+
+        document.getElementById('pModalBadge').textContent = data.badge;
+        document.getElementById('pModalTitle').textContent = data.title;
+        document.getElementById('pModalTagline').textContent = data.tagline;
+        document.getElementById('pModalImg').src = data.image;
+        document.getElementById('pModalDesc').textContent = data.desc;
+
+        const featureList = document.getElementById('pModalFeatures');
+        featureList.innerHTML = data.features
+          .map(f => `<li class="product-feature-item"><i>✓</i> ${f}</li>`)
+          .join('');
+
+        // Wire demo button inside product modal to quote modal
+        document.getElementById('pModalDemoBtn').onclick = () => {
+          closeModal(productModal);
+          const sel = document.getElementById('qService');
+          if (sel) {
+            for (let i = 0; i < sel.options.length; i++) {
+              if (sel.options[i].text.toLowerCase().includes(data.title.toLowerCase().slice(0, 8))) {
+                sel.selectedIndex = i;
+                break;
+              }
+            }
+          }
+          setTimeout(() => openModal(quoteModal), 200);
+        };
+
+        openModal(productModal);
+      });
+    });
+
+
+    /* =====================================================
+       QUOTE FORM SUBMIT (WHATSAPP & EMAIL)
+    ====================================================== */
+
+    const quoteForm = document.getElementById('quoteForm');
+
+    function buildLeadMessage() {
+      const name = document.getElementById('qName').value.trim();
+      const org = document.getElementById('qOrg').value.trim() || 'N/A';
+      const phone = document.getElementById('qPhone').value.trim();
+      const email = document.getElementById('qEmail').value.trim() || 'N/A';
+      const service = document.getElementById('qService').value;
+      const msg = document.getElementById('qMsg').value.trim() || 'Please reach out to discuss.';
+
+      const text = `*New Nzeru Consultation Request*%0A` +
+        `👤 *Name:* ${encodeURIComponent(name)}%0A` +
+        `🏢 *Organization:* ${encodeURIComponent(org)}%0A` +
+        `📞 *Phone/WA:* ${encodeURIComponent(phone)}%0A` +
+        `✉️ *Email:* ${encodeURIComponent(email)}%0A` +
+        `🛠️ *Service:* ${encodeURIComponent(service)}%0A` +
+        `📝 *Details:* ${encodeURIComponent(msg)}`;
+
+      return { text, name, org, phone, email, service, msg };
+    }
+
+    quoteForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const lead = buildLeadMessage();
+      window.open(`https://wa.me/265992579666?text=${lead.text}`, '_blank');
+      closeModal(quoteModal);
+      quoteForm.reset();
+    });
+
+    document.getElementById('emailDraftBtn').addEventListener('click', () => {
+      const lead = buildLeadMessage();
+      if (!lead.name || !lead.phone) {
+        alert('Please fill in your name and phone number.');
+        return;
+      }
+      const subject = encodeURIComponent(`Consultation Request: ${lead.name} (${lead.org})`);
+      const body = encodeURIComponent(
+        `Name: ${lead.name}\nOrganization: ${lead.org}\nPhone: ${lead.phone}\nEmail: ${lead.email}\nService: ${lead.service}\n\nProject Details:\n${lead.msg}`
+      );
+      window.location.href = `mailto:nzerudigitalsytems@gmail.com?subject=${subject}&body=${body}`;
+      closeModal(quoteModal);
+      quoteForm.reset();
+    });
+
+
+    /* =====================================================
+       FAQ ACCORDION
+    ====================================================== */
+
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      const answer = item.querySelector('.faq-answer');
+
+      question.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+
+        // Close all other items
+        faqItems.forEach(otherItem => {
+          otherItem.classList.remove('active');
+          otherItem.querySelector('.faq-answer').style.maxHeight = null;
+        });
+
+        // Toggle clicked item
+        if (!isActive) {
+          item.classList.add('active');
+          answer.style.maxHeight = answer.scrollHeight + "px";
+        }
+      });
+    });
+
+
+    /* =====================================================
+       LOADER
+    ====================================================== */
+
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.getElementById("loader").classList.add("hide");
+      }, 1400);
+    });
+
+
+    /* =====================================================
+       NAVIGATION
+    ====================================================== */
+
+    const nav = document.getElementById("nav");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 40) {
+        nav.classList.add("scrolled");
+      } else {
+        nav.classList.remove("scrolled");
+      }
+    });
+
+
+    /* =====================================================
+       MOBILE MENU
+    ====================================================== */
+
+    const mobileToggle = document.getElementById("mobileToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    mobileToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+      });
+    });
+
+
+    /* =====================================================
+       SCROLL REVEAL
+    ====================================================== */
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: .12 }
+    );
+
+    revealElements.forEach(element => {
+      revealObserver.observe(element);
+    });
+
+
+    /* =====================================================
+       COUNTERS & PROGRESS ANIMATION
+    ====================================================== */
+
+    const counters = document.querySelectorAll(".counter");
+    const statProgresses = document.querySelectorAll(".stat-progress");
+
+    const counterObserver = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+
+          statProgresses.forEach(sp => sp.classList.add("animated"));
+
+          const counter = entry.target;
+          const target = Number(counter.dataset.target);
+          let current = 0;
+          const duration = 1600;
+          const start = performance.now();
+
+          function update(time) {
+            const progress = Math.min((time - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            current = Math.floor(target * eased);
+            counter.textContent = current;
+
+            if (progress < 1) {
+              requestAnimationFrame(update);
+            } else {
+              counter.textContent = target;
+              counter.style.transform = "scale(1.08)";
+              setTimeout(() => { counter.style.transform = "scale(1)"; }, 250);
+            }
+          }
+
+          requestAnimationFrame(update);
+          counterObserver.unobserve(counter);
+        });
+      },
+      { threshold: .35 }
+    );
+
+    counters.forEach(counter => {
+      counterObserver.observe(counter);
+    });
+
+
+    /* =====================================================
+       3D STAT CARD TILT EFFECT
+    ====================================================== */
+
+    const tiltCards = document.querySelectorAll("[data-tilt]");
+
+    tiltCards.forEach(card => {
+      card.addEventListener("mousemove", e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        const rotX = (y / (rect.height / 2)) * -6;
+        const rotY = (x / (rect.width / 2)) * 6;
+        card.style.transform = `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-6px)`;
+      });
+
+      card.addEventListener("mouseleave", () => {
+        card.style.transform = "perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0)";
+      });
+    });
+
+
+    /* =====================================================
+       SMOOTH MAGNETIC BUTTON EFFECT
+    ====================================================== */
+
+    const buttons = document.querySelectorAll(".btn");
+
+    buttons.forEach(button => {
+      button.addEventListener("mousemove", event => {
+        const rect = button.getBoundingClientRect();
+        const x = event.clientX - rect.left - rect.width / 2;
+        const y = event.clientY - rect.top - rect.height / 2;
+        button.style.transform = `translate(${x * .08}px, ${y * .08}px)`;
+      });
+
+      button.addEventListener("mouseleave", () => {
+        button.style.transform = "translate(0, 0)";
+      });
+    });
+
+
+    /* =====================================================
+       ACTIVE NAVIGATION
+    ====================================================== */
+
+    const sections = document.querySelectorAll("main section[id]");
+    const navigationLinks = document.querySelectorAll(".nav-links a");
+
+    const activeObserver = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          navigationLinks.forEach(link => { link.style.color = ""; });
+          const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+          if (active) active.style.color = "var(--red)";
+        });
+      },
+      { threshold: .45 }
+    );
+
+    sections.forEach(section => {
+      activeObserver.observe(section);
+    });
+
+
+    /* =====================================================
+       PARTICLE CANVAS HERO
+    ====================================================== */
+
+    (function () {
+      const canvas = document.getElementById('particle-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+
+      let W, H, dpr;
+      let mouse = { x: -9999, y: -9999 };
+      let targetMouse = { x: -9999, y: -9999 };
+      const PARTICLE_COUNT = 340;
+      const CONNECT_DIST = 130;
+      const MOUSE_RADIUS = 200;
+      const MOUSE_FORCE = 70;
+
+      const TEAL = 'rgba(7,80,87,';
+      const GREY = 'rgba(140,158,158,';
+      const RED  = 'rgba(223,36,25,';
+
+      let particles = [];
+
+      function rand(a, b) { return a + Math.random() * (b - a); }
+
+      class Particle {
+        constructor() { this.reset(true); }
+
+        reset(init) {
+          this.ox = rand(W * 0.10, W * 0.98);
+          this.oy = rand(H * 0.02, H * 0.98);
+          this.x  = init ? this.ox : this.ox;
+          this.y  = init ? this.oy : this.oy;
+          this.vx = rand(-0.35, 0.35);
+          this.vy = rand(-0.35, 0.35);
+          this.r  = rand(1.0, 2.8);
+
+          const t = Math.random();
+          if (t < 0.03)       { this.type = 'red';  }
+          else if (t < 0.50)  { this.type = 'teal'; }
+          else                { this.type = 'grey'; }
+
+          this.floatAmpX  = rand(2.5, 7.0);
+          this.floatAmpY  = rand(2.5, 7.0);
+          this.floatSpeed = rand(0.0006, 0.002);
+          this.floatPhase = rand(0, Math.PI * 2);
+        }
+
+        update(t) {
+          const fx = Math.sin(t * this.floatSpeed * 1000 + this.floatPhase) * this.floatAmpX;
+          const fy = Math.cos(t * this.floatSpeed * 800  + this.floatPhase) * this.floatAmpY;
+
+          const dx = mouse.x - this.x;
+          const dy = mouse.y - this.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          let forceX = 0, forceY = 0;
+          if (dist < MOUSE_RADIUS && dist > 1) {
+            const strength = (1 - dist / MOUSE_RADIUS) * MOUSE_FORCE;
+            forceX = (dx / dist) * strength * 0.018;
+            forceY = (dy / dist) * strength * 0.018;
+          }
+
+          const springX = (this.ox + fx - this.x) * 0.018;
+          const springY = (this.oy + fy - this.y) * 0.018;
+
+          this.vx = this.vx * 0.92 + springX + forceX;
+          this.vy = this.vy * 0.92 + springY + forceY;
+
+          this.x += this.vx;
+          this.y += this.vy;
+        }
+
+        draw() {
+          let col;
+          if (this.type === 'red')  col = RED;
+          else if (this.type === 'teal') col = TEAL;
+          else col = GREY;
+
+          const alpha = this.type === 'red' ? 0.9 : (this.type === 'teal' ? 0.7 : 0.45);
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+          ctx.fillStyle = col + alpha + ')';
+          ctx.fill();
+        }
+      }
+
+      function drawConnections() {
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const a = particles[i], b = particles[j];
+            const dx = a.x - b.x, dy = a.y - b.y;
+            const d = Math.sqrt(dx * dx + dy * dy);
+            if (d < CONNECT_DIST) {
+              const alpha = (1 - d / CONNECT_DIST) * 0.28;
+              const c = (a.type === 'red' || b.type === 'red') ? RED
+                      : (a.type === 'teal' || b.type === 'teal') ? TEAL : GREY;
+              ctx.beginPath();
+              ctx.moveTo(a.x, a.y);
+              ctx.lineTo(b.x, b.y);
+              ctx.strokeStyle = c + alpha + ')';
+              ctx.lineWidth = 0.7;
+              ctx.stroke();
+            }
+          }
+        }
+      }
+
+      function resize() {
+        dpr = window.devicePixelRatio || 1;
+        const rect = canvas.getBoundingClientRect();
+        W = rect.width;
+        H = rect.height;
+        canvas.width  = W * dpr;
+        canvas.height = H * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        particles = Array.from({ length: PARTICLE_COUNT }, () => new Particle());
+      }
+
+      function loop(t) {
+        requestAnimationFrame(loop);
+        ctx.clearRect(0, 0, W, H);
+
+        mouse.x += (targetMouse.x - mouse.x) * 0.072;
+        mouse.y += (targetMouse.y - mouse.y) * 0.072;
+
+        drawConnections();
+        particles.forEach(p => { p.update(t); p.draw(); });
+      }
+
+      window.addEventListener('resize', resize);
+
+      // Mouse tracking relative to hero section
+      const heroSection = document.getElementById('home');
+      heroSection.addEventListener('mousemove', e => {
+        const rect = canvas.getBoundingClientRect();
+        targetMouse.x = e.clientX - rect.left;
+        targetMouse.y = e.clientY - rect.top;
+      });
+      heroSection.addEventListener('mouseleave', () => {
+        targetMouse.x = -9999;
+        targetMouse.y = -9999;
+      });
+
+      // Mobile Touch Tracking: fingers bend and ripple the particle field in real time
+      heroSection.addEventListener('touchstart', e => {
+        if (e.touches.length > 0) {
+          const rect = canvas.getBoundingClientRect();
+          targetMouse.x = e.touches[0].clientX - rect.left;
+          targetMouse.y = e.touches[0].clientY - rect.top;
+        }
+      }, { passive: true });
+
+      heroSection.addEventListener('touchmove', e => {
+        if (e.touches.length > 0) {
+          const rect = canvas.getBoundingClientRect();
+          targetMouse.x = e.touches[0].clientX - rect.left;
+          targetMouse.y = e.touches[0].clientY - rect.top;
+        }
+      }, { passive: true });
+
+      heroSection.addEventListener('touchend', () => {
+        // Softly release back to ambient drift
+        setTimeout(() => {
+          targetMouse.x = -9999;
+          targetMouse.y = -9999;
+        }, 1500);
+      });
+
+      // Mobile: Continuous multi-frequency organic flow (ambient living particle fluid)
+      let mobileT = 0;
+      function mobileAmbientFlow() {
+        if (window.innerWidth <= 800) {
+          mobileT += 0.016;
+          // Lissajous curve floating gravity point
+          if (targetMouse.x === -9999) {
+            targetMouse.x = W * 0.55 + Math.sin(mobileT * 0.7) * (W * 0.35) + Math.cos(mobileT * 1.3) * (W * 0.15);
+            targetMouse.y = H * 0.45 + Math.cos(mobileT * 0.9) * (H * 0.30) + Math.sin(mobileT * 1.6) * (H * 0.12);
+          }
+        }
+        requestAnimationFrame(mobileAmbientFlow);
+      }
+      mobileAmbientFlow();
+
+      resize();
+      requestAnimationFrame(loop);
+    })();
+
+
+    /* =====================================================
+       MOBILE SCROLL-ACTIVE HIGHLIGHTS
+    ====================================================== */
+
+    if ('IntersectionObserver' in window && window.innerWidth <= 800) {
+      const mobileObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('mobile-active');
+          } else {
+            entry.target.classList.remove('mobile-active');
+          }
+        });
+      }, { threshold: 0.55 });
+
+      document.querySelectorAll('.service, .stat, .advantage-card').forEach(el => {
+        mobileObserver.observe(el);
+      });
+    }
+
+  </script>
+
+</body>
+</html>
