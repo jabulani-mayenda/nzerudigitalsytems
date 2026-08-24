@@ -1,856 +1,4102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nzeru Digital Services — Smart Systems. Secure Businesses. Better Decisions.</title>
-  <meta name="description" content="Nzeru Digital Services builds practical digital solutions for businesses, schools, healthcare providers, and organizations across Malawi and beyond.">
-  <meta name="keywords" content="Nzeru Digital, software development, Malawi, business systems, cybersecurity, data analytics, AI, BridgeSign">
-  <meta property="og:title" content="Nzeru Digital Services">
-  <meta property="og:description" content="Smart Systems. Secure Businesses. Better Decisions.">
-  <meta property="og:type" content="website">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Nzeru Digital — Smart Systems. Secure Businesses. Better Decisions.</title>
+
+  <meta
+    name="description"
+    content="Nzeru Digital builds smart systems, secures businesses and turns data into better decisions. Malawi-based digital solutions, enterprise SaaS & cybersecurity."
+  />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/logo/logonzeru.jpeg" />
+  <link rel="apple-touch-icon" href="assets/logo/logonzeru.jpeg" />
+
+  <!-- OpenGraph Social Sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Nzeru Digital Solutions" />
+  <meta property="og:title" content="Nzeru Digital — Smart Systems. Secure Businesses." />
+  <meta property="og:description" content="Custom software, subscription SaaS systems, cybersecurity audits & AI-driven business intelligence in Malawi." />
+  <meta property="og:image" content="assets/logo/logonzeru.jpeg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Nzeru Digital — Smart Systems. Secure Businesses." />
+  <meta name="twitter:description" content="Custom software, subscription SaaS systems, cybersecurity audits & AI-driven business intelligence in Malawi." />
+  <meta name="twitter:image" content="assets/logo/logonzeru.jpeg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,300;1,14..32,400&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=3">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+
+    /* =========================================================
+       N Z E R U  —  GLOBAL
+    ========================================================= */
+
+    :root {
+      --white: #ffffff;
+      --off-white: #f7f8f7;
+      --black: #101313;
+      --muted: #687271;
+
+      --teal: #075057;
+      --teal-dark: #043c42;
+      --teal-light: #e7f1f0;
+
+      --red: #df2419;
+      --red-dark: #b91b13;
+
+      --border: rgba(16, 19, 19, 0.12);
+
+      --container: 1240px;
+
+      --ease: cubic-bezier(.22, 1, .36, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: var(--white);
+      color: var(--black);
+      overflow-x: hidden;
+    }
+
+    body.no-scroll {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      border: 0;
+      background: none;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    ::selection {
+      background: var(--red);
+      color: white;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: 130px 0;
+      position: relative;
+    }
+
+    .eyebrow {
+      color: var(--red);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(42px, 6vw, 82px);
+      line-height: .96;
+      letter-spacing: -.055em;
+      max-width: 900px;
+    }
+
+    .section-title span {
+      color: var(--red);
+    }
+
+    .body-copy {
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 560px;
+    }
+
+
+    /* =========================================================
+       LOADER
+    ========================================================= */
+
+    .loader {
+      position: fixed;
+      inset: 0;
+      background: var(--teal);
+      z-index: 9999;
+      display: grid;
+      place-items: center;
+      transition:
+        opacity .8s var(--ease),
+        visibility .8s;
+    }
+
+    .loader.hide {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .loader-logo {
+      color: white;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(50px, 10vw, 110px);
+      font-weight: 700;
+      letter-spacing: -.07em;
+      overflow: hidden;
+    }
+
+    .loader-logo span {
+      display: inline-block;
+      transform: translateY(110%);
+      animation: loaderLetters .8s var(--ease) forwards;
+    }
+
+    .loader-logo span:nth-child(2) {
+      animation-delay: .08s;
+    }
+
+    .loader-logo span:nth-child(3) {
+      animation-delay: .16s;
+    }
+
+    .loader-logo span:nth-child(4) {
+      animation-delay: .24s;
+    }
+
+    .loader-logo span:nth-child(5) {
+      animation-delay: .32s;
+    }
+
+    @keyframes loaderLetters {
+      to {
+        transform: translateY(0);
+      }
+    }
+
+
+    /* =========================================================
+       NAVIGATION
+    ========================================================= */
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 24px 0;
+      transition:
+        background .4s ease,
+        padding .4s ease,
+        box-shadow .4s ease;
+    }
+
+    .nav.scrolled {
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(18px);
+      padding: 16px 0;
+      box-shadow: 0 1px 0 var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 25px;
+      font-weight: 700;
+      letter-spacing: -.07em;
+    }
+
+    .logo small {
+      display: block;
+      font-family: "DM Sans", sans-serif;
+      font-size: 6px;
+      letter-spacing: .16em;
+      color: var(--teal);
+      margin-top: -2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--red);
+      bottom: -7px;
+      left: 0;
+      transition: width .3s var(--ease);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      background: var(--red);
+      color: white;
+      padding: 12px 19px;
+      border-radius: 3px;
+      font-size: 12px;
+      font-weight: 700;
+      transition: transform .3s var(--ease), background .3s ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--red-dark);
+      transform: translateY(-3px);
+    }
+
+    .mobile-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .mobile-toggle span {
+      width: 17px;
+      height: 1px;
+      background: var(--black);
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 100px;
+    }
+
+    /* particle canvas replaces hero-grid and hero-orb */
+    #particle-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-kicker {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 25px;
+      font-size: 12px;
+      font-weight: 600;
+      opacity: 0;
+      transform: translateX(-50px);
+      animation: slideLeft 1s .8s var(--ease) forwards;
+    }
+
+    .hero-kicker i {
+      width: 35px;
+      height: 1px;
+      background: var(--red);
+    }
+
+    .hero-title {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(75px, 15vw, 220px);
+      line-height: .78;
+      letter-spacing: -.085em;
+      display: flex;
+      overflow: hidden;
+      margin-left: -8px;
+    }
+
+    .hero-title span {
+      display: inline-block;
+      transform: translateX(-110%);
+      opacity: 0;
+      animation: heroLetter 1.1s var(--ease) forwards;
+    }
+
+    .hero-title span:nth-child(1) {
+      animation-delay: .55s;
+    }
+
+    .hero-title span:nth-child(2) {
+      animation-delay: .65s;
+    }
+
+    .hero-title span:nth-child(3) {
+      animation-delay: .75s;
+    }
+
+    .hero-title span:nth-child(4) {
+      animation-delay: .85s;
+    }
+
+    .hero-title span:nth-child(5) {
+      animation-delay: .95s;
+      color: var(--teal);
+    }
+
+    @keyframes heroLetter {
+      0% {
+        transform: translateX(-110%);
+        opacity: 0;
+      }
+
+      70% {
+        transform: translateX(8%);
+      }
+
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .hero-subtitle {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(24px, 3vw, 42px);
+      line-height: 1.1;
+      max-width: 760px;
+      margin-top: 45px;
+      letter-spacing: -.04em;
+      opacity: 0;
+      transform: translateX(-60px);
+      animation: slideLeft 1s 1.3s var(--ease) forwards;
+    }
+
+    .hero-subtitle span {
+      color: var(--red);
+    }
+
+    .hero-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 55px;
+      opacity: 0;
+      transform: translateX(-60px);
+      animation: slideLeft 1s 1.5s var(--ease) forwards;
+    }
+
+    .hero-description {
+      color: var(--muted);
+      max-width: 440px;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 15px;
+      background: var(--red);
+      color: white;
+      padding: 16px 22px;
+      font-size: 12px;
+      font-weight: 700;
+      position: relative;
+      overflow: hidden;
+      border-radius: 2px;
+      transition: transform .4s var(--ease);
+    }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--black);
+      transform: translateX(-101%);
+      transition: transform .5s var(--ease);
+    }
+
+    .btn:hover::before {
+      transform: translateX(0);
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+    }
+
+    .btn span {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      right: 30px;
+      bottom: 35px;
+      writing-mode: vertical-rl;
+      font-size: 9px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-scroll::before {
+      content: "";
+      width: 1px;
+      height: 45px;
+      background: var(--red);
+    }
+
+    @keyframes slideLeft {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+
+    /* =========================================================
+       SERVICES
+    ========================================================= */
+
+    .services {
+      background: var(--off-white);
+    }
+
+    .services-heading {
+      display: flex;
+      justify-content: space-between;
+      gap: 50px;
+      margin-bottom: 70px;
+    }
+
+    .services-heading .body-copy {
+      padding-top: 10px;
+    }
+
+    .services-list {
+      border-top: 1px solid var(--border);
+    }
+
+    .service {
+      display: grid;
+      grid-template-columns: 90px 1.4fr 1fr 100px;
+      gap: 30px;
+      align-items: center;
+      padding: 38px 0;
+      border-bottom: 1px solid var(--border);
+      transition:
+        padding .5s var(--ease),
+        background .5s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--teal);
+      transform: translateX(-101%);
+      transition: transform .6s var(--ease);
+      z-index: 0;
+    }
+
+    .service:hover::before {
+      transform: translateX(0);
+    }
+
+    .service > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .service:hover {
+      padding-left: 25px;
+      padding-right: 25px;
+      color: white;
+    }
+
+    .service-number {
+      color: var(--red);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 14px;
+    }
+
+    .service:hover .service-number {
+      color: #fff;
+    }
+
+    .service-name {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(25px, 3vw, 40px);
+      letter-spacing: -.04em;
+    }
+
+    .service-description {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .service:hover .service-description {
+      color: rgba(255,255,255,.7);
+    }
+
+    .service-arrow {
+      width: 45px;
+      height: 45px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      justify-self: end;
+      transition: all .4s var(--ease);
+    }
+
+    .service:hover .service-arrow {
+      background: var(--red);
+      border-color: var(--red);
+      transform: rotate(-45deg);
+    }
+
+
+    /* =========================================================
+       ABOUT
+    ========================================================= */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: center;
+    }
+
+    .about-image {
+      position: relative;
+      min-height: 580px;
+    }
+
+    .about-image-main {
+      width: 82%;
+      height: 500px;
+      margin-left: auto;
+      overflow: hidden;
+      background: var(--teal-light);
+    }
+
+    .about-image-main img {
+      height: 100%;
+      transition: transform 1s var(--ease);
+    }
+
+    .about-image:hover img {
+      transform: scale(1.05);
+    }
+
+    .about-accent {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 180px;
+      height: 180px;
+      background: var(--red);
+      z-index: -1;
+    }
+
+    /* floating stat pills on about image */
+    .about-stat {
+      position: absolute;
+      background: white;
+      border-left: 3px solid var(--teal);
+      padding: 14px 20px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.12);
+      z-index: 3;
+      animation: floatY 4s ease-in-out infinite;
+    }
+    .about-stat:nth-child(3) { animation-delay: -2s; }
+    .about-stat-num {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--teal);
+      letter-spacing: -.04em;
+      line-height: 1;
+    }
+    .about-stat-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    @keyframes floatY {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-10px); }
+    }
+
+    /* teal side strip */
+    .about-strip {
+      position: absolute;
+      right: 0;
+      top: 40px;
+      width: 5px;
+      height: 60%;
+      background: linear-gradient(to bottom, var(--teal), var(--red));
+      border-radius: 4px;
+    }
+
+    .about-number {
+      position: absolute;
+      top: 30px;
+      left: 0;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 90px;
+      line-height: 1;
+      color: var(--teal);
+      opacity: .12;
+    }
+
+    .about-content .section-title {
+      margin-bottom: 35px;
+    }
+
+    .about-content .body-copy {
+      margin-bottom: 30px;
+    }
+
+    /* inline pillars under about copy */
+    .about-pillars {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+      margin-bottom: 32px;
+    }
+    .about-pillar {
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--teal);
+      border-radius: 2px;
+      transition: background .3s, color .3s;
+    }
+    .about-pillar:hover {
+      background: var(--teal);
+      color: white;
+    }
+
+
+    /* =========================================================
+       PRODUCTS
+    ========================================================= */
+
+    .products {
+      background: var(--teal);
+      color: white;
+      overflow: hidden;
+    }
+
+    .products .eyebrow {
+      color: #ff6259;
+    }
+
+    .products .body-copy {
+      color: rgba(255,255,255,.68);
+    }
+
+    .products-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 50px;
+      margin-bottom: 70px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 25px;
+    }
+
+    .product-card {
+      position: relative;
+      min-height: 460px;
+      overflow: hidden;
+      background: var(--teal-dark);
+      group: product;
+    }
+
+    .product-card:nth-child(2),
+    .product-card:nth-child(3) {
+      min-height: 217px;
+    }
+
+    .product-card:nth-child(2) {
+      margin-bottom: 25px;
+    }
+
+    .product-card-image {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .product-card-image img {
+      height: 100%;
+      transition: transform 1s var(--ease);
+    }
+
+    .product-card:hover .product-card-image img {
+      transform: scale(1.08);
+    }
+
+    .product-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          to top,
+          rgba(0,0,0,.85),
+          rgba(0,0,0,.05) 70%
+        );
+    }
+
+    .product-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 35px;
+      transform: translateY(15px);
+      transition: transform .5s var(--ease);
+    }
+
+    .product-card:hover .product-content {
+      transform: translateY(0);
+    }
+
+    .product-tag {
+      color: #ff6259;
+      text-transform: uppercase;
+      font-size: 9px;
+      letter-spacing: .16em;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .product-name {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 30px;
+      letter-spacing: -.04em;
+    }
+
+    .product-text {
+      color: rgba(255,255,255,.7);
+      font-size: 12px;
+      line-height: 1.6;
+      margin-top: 8px;
+      max-width: 400px;
+    }
+
+
+    /* =========================================================
+       EXPERIENCE / NUMBERS
+    ========================================================= */
+
+    .experience {
+      background: var(--off-white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Ambient background glow orb */
+    .experience-glow {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(7,80,87,0.09) 0%, rgba(223,36,25,0.03) 60%, transparent 80%);
+      top: 50%;
+      right: -100px;
+      transform: translateY(-50%);
+      pointer-events: none;
+      filter: blur(40px);
+      animation: expGlowPulse 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes expGlowPulse {
+      0% { transform: translateY(-50%) scale(0.9); opacity: 0.7; }
+      100% { transform: translateY(-45%) scale(1.15); opacity: 1; }
+    }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 90px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Live status badge */
+    .exp-live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: rgba(7,80,87,0.06);
+      border: 1px solid rgba(7,80,87,0.15);
+      border-radius: 20px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 22px;
+    }
+
+    .exp-live-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--red);
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 rgba(223,36,25,0.7);
+      animation: livePulse 2s infinite;
+    }
+
+    @keyframes livePulse {
+      0% { box-shadow: 0 0 0 0 rgba(223,36,25,0.7); }
+      70% { box-shadow: 0 0 0 8px rgba(223,36,25,0); }
+      100% { box-shadow: 0 0 0 0 rgba(223,36,25,0); }
+    }
+
+    /* Capability tags under description */
+    .exp-capabilities {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 25px;
+      margin-bottom: 30px;
+    }
+
+    .exp-chip {
+      background: white;
+      border: 1px solid var(--border);
+      padding: 7px 13px;
+      border-radius: 3px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--black);
+      letter-spacing: .02em;
+      transition: all .35s var(--ease);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .exp-chip i {
+      color: var(--red);
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    .exp-chip:hover {
+      background: var(--teal);
+      color: white;
+      border-color: var(--teal);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px rgba(7,80,87,0.18);
+    }
+    .exp-chip:hover i { color: #ff6259; }
+
+    /* Stats Grid */
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      perspective: 1000px;
+    }
+
+    .stat {
+      background: white;
+      padding: 38px 30px 32px;
+      border: 1px solid rgba(16, 19, 19, 0.08);
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+      transition: transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s ease;
+      cursor: default;
+    }
+
+    .stat:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(7,80,87,0.12);
+      border-color: rgba(7,80,87,0.25);
+    }
+
+    /* Top accent sliding bar */
+    .stat-top-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--teal), var(--red));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .5s var(--ease);
+    }
+
+    .stat:hover .stat-top-bar {
+      transform: scaleX(1);
+    }
+
+    /* Watermark index number */
+    .stat-watermark {
+      position: absolute;
+      right: 18px;
+      top: 10px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 58px;
+      font-weight: 700;
+      color: rgba(7,80,87,0.05);
+      line-height: 1;
+      pointer-events: none;
+      transition: transform .5s var(--ease), color .4s ease;
+    }
+
+    .stat:hover .stat-watermark {
+      color: rgba(223,36,25,0.08);
+      transform: scale(1.1) translateX(-4px);
+    }
+
+    .stat-num-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+    }
+
+    .stat-number {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(48px, 5.2vw, 68px);
+      font-weight: 700;
+      line-height: 1;
+      color: var(--teal);
+      letter-spacing: -.06em;
+      transition: color .3s ease;
+    }
+
+    .stat:hover .stat-number {
+      color: var(--black);
+    }
+
+    .stat-plus {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--red);
+    }
+
+    .stat-label {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -.02em;
+      margin-top: 10px;
+      color: var(--black);
+    }
+
+    .stat-sub {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 4px;
+      line-height: 1.45;
+    }
+
+    /* Animated progress bar under stat */
+    .stat-progress {
+      width: 100%;
+      height: 4px;
+      background: rgba(16,19,19,0.06);
+      border-radius: 2px;
+      margin-top: 18px;
+      overflow: hidden;
+    }
+
+    .stat-progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--teal), var(--red));
+      border-radius: 2px;
+      transition: width 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .stat-progress.animated .stat-progress-bar {
+      width: var(--prog-w, 100%);
+    }
+
+
+    /* =========================================================
+       TEAM
+    ========================================================= */
+
+    .team {
+      background: var(--teal-dark);
+      color: white;
+      overflow: hidden;
+    }
+
+    .team-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 50px;
+      margin-bottom: 70px;
+    }
+
+    .team .body-copy {
+      color: rgba(255,255,255,.65);
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .team-card {
+      position: relative;
+      background: white;
+      color: var(--black);
+      overflow: hidden;
+    }
+
+    .team-image {
+      aspect-ratio: 4 / 5;
+      background:
+        linear-gradient(
+          135deg,
+          #d9e5e4,
+          #879e9e
+        );
+      overflow: hidden;
+    }
+
+    .team-image img {
+      height: 100%;
+      transition: transform .8s var(--ease);
+    }
+
+    .team-card:hover .team-image img {
+      transform: scale(1.06);
+    }
+
+    .team-info {
+      padding: 20px;
+    }
+
+    .team-name {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 19px;
+      letter-spacing: -.03em;
+    }
+
+    .team-role {
+      color: var(--red);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-top: 6px;
+    }
+
+    .team-number {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--red);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 10px;
+      z-index: 2;
+    }
+
+
+    /* =========================================================
+       ADVANTAGE
+    ========================================================= */
+
+    .advantage-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 100px;
+      align-items: start;
+    }
+
+    .advantage-items {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .advantage-card {
+      border: 1px solid var(--border);
+      padding: 35px 25px;
+      min-height: 250px;
+      transition:
+        background .4s ease,
+        color .4s ease,
+        transform .4s var(--ease);
+    }
+
+    .advantage-card:hover {
+      background: var(--teal);
+      color: white;
+      transform: translateY(-8px);
+    }
+
+    .advantage-icon {
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--red);
+      border-radius: 50%;
+      color: var(--red);
+      display: grid;
+      place-items: center;
+      margin-bottom: 55px;
+    }
+
+    .advantage-card h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .advantage-card p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .advantage-card:hover p {
+      color: rgba(255,255,255,.7);
+    }
+
+
+    /* =========================================================
+       CTA / CONTACT
+    ========================================================= */
+
+    .cta {
+      background: var(--teal-dark);
+      color: white;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* animated mesh bg on CTA */
+    .cta::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .cta-inner {
+      min-height: 560px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-left .eyebrow {
+      color: #ff6259;
+    }
+
+    .cta-title {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(46px, 6vw, 90px);
+      line-height: .9;
+      letter-spacing: -.07em;
+      max-width: 700px;
+      color: white;
+    }
+
+    .cta-title span {
+      color: #ff6259;
+    }
+
+    .cta-right {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .cta-contact-label {
+      font-size: 9px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.45);
+      margin-bottom: 22px;
+      margin-top: 40px;
+    }
+    .cta-contact-label:first-child { margin-top: 0; }
+
+    .cta-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: white;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      transition: color .3s ease, gap .3s var(--ease);
+      text-decoration: none;
+    }
+    .cta-contact-item:hover {
+      color: #ff6259;
+      gap: 20px;
+    }
+    .cta-contact-icon {
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+      flex-shrink: 0;
+      transition: background .3s, border-color .3s;
+    }
+    .cta-contact-item:hover .cta-contact-icon {
+      background: var(--red);
+      border-color: var(--red);
+    }
+
+    .cta-circle {
+      display: none; /* replaced by contact panel */
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-20px); }
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      background: #032f35;
+      color: white;
+      padding: 80px 0 30px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.3fr .7fr .7fr .9fr;
+      gap: 60px;
+      padding-bottom: 70px;
+    }
+
+    .footer-logo {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 42px;
+      letter-spacing: -.07em;
+    }
+
+    .footer-brand p {
+      color: rgba(255,255,255,.55);
+      max-width: 300px;
+      font-size: 13px;
+      line-height: 1.7;
+      margin-top: 20px;
+    }
+
+    .footer-title {
+      color: var(--red);
+      text-transform: uppercase;
+      font-size: 9px;
+      letter-spacing: .15em;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,.7);
+      font-size: 12px;
+      transition: color .3s ease, transform .3s var(--ease);
+    }
+
+    .footer-links a:hover {
+      color: white;
+      transform: translateX(5px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.12);
+      padding-top: 25px;
+      display: flex;
+      justify-content: space-between;
+      color: rgba(255,255,255,.4);
+      font-size: 10px;
+    }
+
+
+    /* =========================================================
+       SCROLL REVEAL
+    ========================================================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateX(-70px);
+      transition:
+        opacity 1s var(--ease),
+        transform 1s var(--ease);
+    }
+
+    .reveal.right {
+      transform: translateX(70px);
+    }
+
+    .reveal.up {
+      transform: translateY(70px);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translate(0);
+    }
+
+
+    /* =========================================================
+       MOBILE
+    ========================================================= */
+
+    @media (max-width: 1000px) {
+
+      .nav-links {
+        position: fixed;
+        inset: 0;
+        background: white;
+        flex-direction: column;
+        justify-content: center;
+        gap: 28px;
+        transform: translateX(100%);
+        transition: transform .6s var(--ease);
+      }
+
+      .nav-links.open {
+        transform: translateX(0);
+      }
+
+      .nav-links a {
+        font-size: 25px;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .mobile-toggle {
+        display: flex;
+        position: relative;
+        z-index: 3;
+      }
+
+      .hero-bottom,
+      .services-heading,
+      .products-header,
+      .team-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .about-grid,
+      .experience-grid,
+      .advantage-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+
+    @media (max-width: 650px) {
+
+      .container {
+        width: min(var(--container), calc(100% - 30px));
+      }
+
+      .section {
+        padding: 90px 0;
+      }
+
+      .hero {
+        min-height: 850px;
+      }
+
+      .hero-title {
+        font-size: clamp(65px, 20vw, 120px);
+        flex-wrap: wrap;
+      }
+
+      .hero-subtitle {
+        font-size: 28px;
+      }
+
+      .hero-bottom {
+        gap: 30px;
+      }
+
+      .hero-scroll {
+        display: none;
+      }
+
+      /* mobile services: card style with active touch glow */
+      .service {
+        grid-template-columns: 1fr auto;
+        gap: 16px;
+        padding: 24px 20px;
+        border-radius: 6px;
+        background: white;
+        border: 1px solid var(--border);
+        margin-bottom: 14px;
+        border-left: 3px solid var(--border);
+        transition: all .35s var(--ease);
+      }
+      .service:active, .service.mobile-active {
+        border-left-color: var(--teal);
+        background: #f0f7f7;
+        transform: scale(0.98);
+      }
+      .service-number {
+        display: none;
+      }
+      .service-description {
+        display: block;
+        font-size: 13px;
+        grid-column: 1 / -1;
+        color: var(--muted);
+      }
+      .service-name {
+        font-size: 20px;
+      }
+      .service-arrow {
+        width: 38px;
+        height: 38px;
+        background: var(--teal-light);
+        border-color: var(--teal-light);
+        color: var(--teal);
+      }
+
+      .about-image {
+        min-height: 430px;
+      }
+
+      .about-image-main {
+        height: 390px;
+        width: 85%;
+      }
+
+      .about-accent {
+        width: 120px;
+        height: 120px;
+      }
+
+      .products-grid {
+        display: block;
+      }
+
+      .product-card,
+      .product-card:nth-child(2),
+      .product-card:nth-child(3) {
+        min-height: 320px;
+        margin-bottom: 18px;
+        border-radius: 6px;
+      }
+
+      /* Mobile: always show tap prompt pill on products */
+      .product-card::after {
+        opacity: 0.9 !important;
+        transform: translateY(0) !important;
+        font-size: 8px !important;
+        padding: 5px 10px !important;
+        background: rgba(4, 60, 66, 0.85) !important;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .stat {
+        padding: 30px 24px;
+      }
+
+      /* Mobile: auto-fill top bar on scroll */
+      .stat.mobile-active .stat-top-bar {
+        transform: scaleX(1);
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .team-info {
+        padding: 14px 12px;
+      }
+      .team-name {
+        font-size: 15px;
+      }
+
+      .advantage-items {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .advantage-card {
+        padding: 28px 20px;
+        min-height: auto;
+        border-radius: 4px;
+      }
+
+      .advantage-card.mobile-active {
+        background: var(--teal);
+        color: white;
+      }
+      .advantage-card.mobile-active p {
+        color: rgba(255,255,255,.75);
+      }
+
+      .cta-inner {
+        grid-template-columns: 1fr;
+        padding: 60px 0;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+
+      /* Touch haptic press effects on all buttons & cards */
+      .btn:active, .nav-cta:active, .btn-wa-submit:active {
+        transform: scale(0.96) !important;
+      }
+      .product-card:active {
+        transform: scale(0.98);
+      }
+      .advantage-card:active {
+        transform: scale(0.98);
+      }
+    }
+
+
+    /* =========================================================
+       FAQ SECTION
+    ========================================================= */
+
+    .faq {
+      background: var(--white);
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 90px;
+      align-items: start;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: border-color .3s ease, box-shadow .3s ease;
+      background: white;
+    }
+
+    .faq-item.active {
+      border-color: var(--teal);
+      box-shadow: 0 8px 24px rgba(7,80,87,0.06);
+    }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      padding: 22px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--black);
+      cursor: pointer;
+      background: none;
+      border: none;
+      transition: color .3s ease;
+    }
+
+    .faq-item.active .faq-question {
+      color: var(--teal);
+    }
+
+    .faq-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--teal-light);
+      color: var(--teal);
+      display: grid;
+      place-items: center;
+      font-size: 16px;
+      flex-shrink: 0;
+      transition: transform .35s var(--ease), background .35s ease, color .35s ease;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+      background: var(--red);
+      color: white;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s var(--ease), padding .3s ease;
+      padding: 0 24px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .faq-item.active .faq-answer {
+      padding-bottom: 22px;
+    }
+
+
+    /* =========================================================
+       FLOATING WHATSAPP BUTTON
+    ========================================================= */
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 990;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      transition: transform .35s var(--ease);
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-4px) scale(1.04);
+    }
+
+    .wa-btn {
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+      position: relative;
+    }
+
+    .wa-btn::before {
+      content: "";
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px solid #25D366;
+      opacity: 0.6;
+      animation: waPulse 2s infinite;
+    }
+
+    @keyframes waPulse {
+      0% { transform: scale(1); opacity: 0.8; }
+      100% { transform: scale(1.35); opacity: 0; }
+    }
+
+    .wa-btn svg {
+      width: 32px;
+      height: 32px;
+      fill: white;
+    }
+
+    .wa-tooltip {
+      background: white;
+      color: var(--black);
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+      border: 1px solid var(--border);
+      white-space: nowrap;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .wa-status-dot {
+      width: 6px;
+      height: 6px;
+      background: #25D366;
+      border-radius: 50%;
+    }
+
+
+    /* =========================================================
+       MODALS (QUOTE & PRODUCT DETAILS)
+    ========================================================= */
+
+    .nzeru-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 60, 66, 0.75);
+      backdrop-filter: blur(8px);
+      z-index: 10000;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .35s ease, visibility .35s ease;
+    }
+
+    .nzeru-modal-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .nzeru-modal {
+      background: white;
+      border-radius: 6px;
+      width: 100%;
+      max-width: 680px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      padding: 45px 40px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+      transform: translateY(30px) scale(0.96);
+      transition: transform .4s var(--ease);
+    }
+
+    .nzeru-modal-overlay.open .nzeru-modal {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--off-white);
+      color: var(--black);
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      cursor: pointer;
+      transition: all .25s ease;
+    }
+
+    .modal-close:hover {
+      background: var(--red);
+      color: white;
+      border-color: var(--red);
+      transform: rotate(90deg);
+    }
+
+    /* Modal Form Styles */
+    .modal-header {
+      margin-bottom: 28px;
+    }
+
+    .modal-title {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 28px;
+      letter-spacing: -.04em;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+
+    .modal-subtitle {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--black);
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 13px 15px;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--black);
+      background: var(--off-white);
+      transition: border-color .3s ease, background .3s ease;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      outline: none;
+      border-color: var(--teal);
+      background: white;
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .btn-wa-submit {
+      background: #25D366;
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 22px;
+      border-radius: 3px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: transform .3s var(--ease), background .3s ease;
+    }
+
+    .btn-wa-submit:hover {
+      background: #1eb956;
+      transform: translateY(-2px);
+    }
+
+    /* Product Modal Specifics */
+    .product-modal-badge {
+      display: inline-block;
+      color: var(--red);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .product-modal-img {
+      width: 100%;
+      height: 240px;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 22px;
+      background: var(--teal-dark);
+    }
+
+    .product-modal-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-feature-list {
+      list-style: none;
+      margin: 18px 0 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .product-feature-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--black);
+    }
+
+    .product-feature-item i {
+      color: var(--red);
+      font-style: normal;
+      font-weight: bold;
+    }
+
+    .product-card {
+      cursor: pointer;
+    }
+
+    .product-card::after {
+      content: "CLICK TO VIEW DETAILS ↗";
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(6px);
+      color: white;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      padding: 6px 12px;
+      border-radius: 20px;
+      opacity: 0;
+      transform: translateY(-6px);
+      transition: all .35s var(--ease);
+      z-index: 5;
+    }
+
+    .product-card:hover::after {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1000px) {
+      .faq-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .nzeru-modal {
+        padding: 30px 20px;
+      }
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+      .whatsapp-float .wa-tooltip {
+        display: none;
+      }
+    }
+
+
+    /* =========================================================
+       REDUCED MOTION
+    ========================================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+  </style>
 </head>
+
+
 <body>
 
-<!-- ===================== NAVIGATION ===================== -->
-<nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
-  <div class="nav-inner">
-    <a href="#home" class="nav-logo" aria-label="Nzeru Digital Services — Home">
-      <img src="assets/images/logo.png" alt="Nzeru Digital" class="nav-logo-img" id="nav-logo-img" onerror="this.style.display='none';document.getElementById('nav-logo-text').style.display='flex'">
-      <span class="nav-logo-text" id="nav-logo-text" style="display:none">NZERU<span class="logo-dot">.</span></span>
-    </a>
-    <ul class="nav-links" role="list">
-      <li><a href="#home" class="nav-link">Home</a></li>
-      <li><a href="#about" class="nav-link">About</a></li>
-      <li><a href="#products" class="nav-link">Products</a></li>
-      <li><a href="#network" class="nav-link">Technology</a></li>
-      <li><a href="#services" class="nav-link">Services</a></li>
-      <li><a href="#work" class="nav-link">Our Work</a></li>
-      <li><a href="#team" class="nav-link">Team</a></li>
-      <li><a href="#contact" class="nav-link">Contact</a></li>
-    </ul>
-    <a href="#contact" class="nav-cta" id="nav-cta">Talk to Nzeru&nbsp;→</a>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
-      <span class="toggle-line"></span>
-      <span class="toggle-line"></span>
-    </button>
-  </div>
-</nav>
 
-<!-- Mobile Overlay -->
-<div class="mobile-overlay" id="mobile-overlay" aria-hidden="true" role="dialog">
-  <div class="mobile-menu-inner">
-    <nav class="mobile-nav" role="navigation" aria-label="Mobile navigation">
-      <a href="#home" class="mobile-nav-link" data-close>Home</a>
-      <a href="#about" class="mobile-nav-link" data-close>About</a>
-      <a href="#products" class="mobile-nav-link" data-close>Products</a>
-      <a href="#network" class="mobile-nav-link" data-close>Technology</a>
-      <a href="#services" class="mobile-nav-link" data-close>Services</a>
-      <a href="#work" class="mobile-nav-link" data-close>Our Work</a>
-      <a href="#team" class="mobile-nav-link" data-close>Team</a>
-      <a href="#contact" class="mobile-nav-link" data-close>Contact</a>
-    </nav>
-    <a href="#contact" class="mobile-cta" data-close>Talk to Nzeru →</a>
-  </div>
-</div>
+  <!-- =======================================================
+       LOADER
+  ======================================================== -->
 
-<!-- ===================== HERO ===================== -->
-<section class="hero" id="home">
-  <div class="hero-inner">
-    <div class="hero-left">
-      <span class="hero-eyebrow" data-hero-reveal="0">NZERU DIGITAL SERVICES</span>
-      <h1 class="hero-headline" data-hero-reveal="1">
-        <span class="hl-line">We build digital systems</span>
-        <span class="hl-line">that make business simpler.</span>
-      </h1>
-      <p class="hero-sub" data-hero-reveal="2">
-        Nzeru Digital develops practical digital solutions that help organizations move from manual processes to simple, secure and intelligent systems.
-      </p>
-      <div class="hero-actions" data-hero-reveal="3">
-        <a href="#products" class="btn btn-primary" id="hero-cta-primary">Explore Our Solutions&nbsp;→</a>
-        <a href="#contact" class="btn btn-ghost" id="hero-cta-secondary">Talk to Nzeru</a>
-      </div>
-    </div>
-
-    <div class="hero-right" aria-hidden="true">
-      <div class="hero-ui-stack" data-hero-reveal="4">
-        <!-- Card 1: Analytics (back) -->
-        <div class="hero-card hero-card--analytics">
-          <div class="hc-header">
-            <span class="hc-title">Business Analytics</span>
-            <span class="hc-live-badge">● Live</span>
-          </div>
-          <div class="hc-metric">
-            <span class="hc-value">MK 4.2M</span>
-            <span class="hc-delta">↑ 18.4%</span>
-          </div>
-          <svg class="hc-sparkline" viewBox="0 0 140 40" preserveAspectRatio="none">
-            <defs>
-              <linearGradient id="hg1" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#C21A03" stop-opacity="0.4"/>
-                <stop offset="100%" stop-color="#C21A03" stop-opacity="0"/>
-              </linearGradient>
-            </defs>
-            <path d="M0,36 L18,28 L35,31 L52,19 L70,23 L88,12 L106,17 L124,8 L140,12 L140,40 L0,40 Z" fill="url(#hg1)"/>
-            <path d="M0,36 L18,28 L35,31 L52,19 L70,23 L88,12 L106,17 L124,8 L140,12" fill="none" stroke="#C21A03" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-
-        <!-- Card 2: Security (mid) -->
-        <div class="hero-card hero-card--security">
-          <div class="hc-header">
-            <span class="hc-title">Security Status</span>
-            <span class="hc-secure-dot"></span>
-          </div>
-          <div class="hc-ring-wrapper">
-            <svg class="hc-ring-svg" viewBox="0 0 68 68">
-              <circle cx="34" cy="34" r="28" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="5"/>
-              <circle cx="34" cy="34" r="28" fill="none" stroke="#C21A03" stroke-width="5"
-                stroke-dasharray="160 176" stroke-dashoffset="40"
-                stroke-linecap="round" transform="rotate(-90 34 34)"/>
-              <text x="34" y="36" text-anchor="middle" dominant-baseline="middle" fill="#FFFFFF" font-size="14" font-weight="700" font-family="Syne,sans-serif">94</text>
-            </svg>
-            <div class="hc-ring-labels">
-              <span class="hc-ring-score">/ 100</span>
-              <span class="hc-ring-grade">Excellent</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3: Activity (front) -->
-        <div class="hero-card hero-card--activity">
-          <div class="hc-header">
-            <span class="hc-title">System Activity</span>
-          </div>
-          <div class="hc-activity">
-            <div class="hc-act-item">
-              <span class="hc-act-dot hc-act-dot--green"></span>
-              <span>Payment processed</span>
-            </div>
-            <div class="hc-act-item">
-              <span class="hc-act-dot hc-act-dot--orange"></span>
-              <span>Report generated</span>
-            </div>
-            <div class="hc-act-item">
-              <span class="hc-act-dot hc-act-dot--muted"></span>
-              <span>User authenticated</span>
-            </div>
-          </div>
-          <div class="hc-active-users">
-            <span class="hc-users-num">1,247</span>
-            <span class="hc-users-lbl">active users</span>
-          </div>
-        </div>
-
-        <!-- Floating AI tag -->
-        <div class="hero-ai-chip" aria-hidden="true">
-          <span class="ai-chip-dot"></span>
-          <span>AI-Powered Insights Active</span>
-        </div>
-      </div>
-      <p class="hero-tagline" data-hero-reveal="5">SMART SYSTEMS. SECURE BUSINESSES. BETTER DECISIONS.</p>
+  <div class="loader" id="loader">
+    <div class="loader-logo">
+      <span>N</span>
+      <span>Z</span>
+      <span>E</span>
+      <span>R</span>
+      <span>U</span>
     </div>
   </div>
 
-  <div class="hero-scroll-hint" aria-hidden="true">
-    <div class="scroll-track"><div class="scroll-thumb"></div></div>
-    <span>Scroll</span>
-  </div>
-</section>
 
-<!-- ===================== TRUST / INTRO ===================== -->
-<section class="trust-section" id="about">
-  <div class="trust-inner">
-    <div class="trust-statement" data-reveal>
-      <h2>Technology should simplify business —<br class="br-desktop"> not complicate it.</h2>
-    </div>
-    <div class="trust-body">
-      <div class="trust-text" data-reveal>
-        <p>Nzeru Digital Services is a Malawi-based technology company helping organizations move from manual, paper-based and fragmented processes to simple, secure and intelligent digital systems.</p>
-        <p>We build software that people actually use — practical, reliable systems designed around the real problems businesses face every day.</p>
-      </div>
-      <div class="trust-pillars" data-reveal>
-        <div class="trust-pillar">
-          <span class="tp-num">01</span>
-          <span class="tp-label">Software Development</span>
-        </div>
-        <div class="trust-pillar">
-          <span class="tp-num">02</span>
-          <span class="tp-label">Cybersecurity</span>
-        </div>
-        <div class="trust-pillar">
-          <span class="tp-num">03</span>
-          <span class="tp-label">Data &amp; Analytics</span>
-        </div>
-        <div class="trust-pillar">
-          <span class="tp-num">04</span>
-          <span class="tp-label">AI Solutions</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  <!-- =======================================================
+       NAVIGATION
+  ======================================================== -->
 
-<!-- ===================== PRODUCTS (PINNED STICKY SCROLL SHOWCASE) ===================== -->
-<section class="products-section" id="products">
-  <div class="products-sticky">
+  <header class="nav" id="nav">
 
-    <!-- Left side: Text changes per product -->
-    <div class="products-left">
-      <span class="section-label">OUR PRODUCTS</span>
-      <h2 class="products-heading">Products built for real-world problems.</h2>
-      <p class="products-sub">From communication and accessibility to business management, intelligence and security, Nzeru builds digital products designed around practical needs.</p>
-      <div class="products-dot-nav" id="products-dot-nav" role="tablist" aria-label="Product navigation">
-        <button class="p-dot active" data-pdot="0" role="tab" aria-selected="true" aria-label="BridgeSign"></button>
-        <button class="p-dot" data-pdot="1" role="tab" aria-selected="false" aria-label="Nzeru Systems"></button>
-        <button class="p-dot" data-pdot="2" role="tab" aria-selected="false" aria-label="Nzeru Intelligence"></button>
-        <button class="p-dot" data-pdot="3" role="tab" aria-selected="false" aria-label="Nzeru Cyber"></button>
-      </div>
-    </div>
+    <div class="container nav-inner">
 
-    <!-- Right side: Single fixed browser frame with changing internal content -->
-    <div class="products-right">
-      <div class="products-counter" aria-live="polite" aria-label="Product number">
-        <span class="pc-current" id="pc-current">01</span>
-        <span class="pc-sep">/</span>
-        <span class="pc-total">04</span>
-      </div>
+      <a href="#home" class="logo">
+        <img src="assets/logo/logonzeru.jpeg" alt="Nzeru Digital" style="height:44px;width:auto;display:block;object-fit:contain;" />
+      </a>
 
-      <div class="product-stack" id="product-stack">
+      <nav class="nav-links" id="navLinks">
 
-        <!-- ── PRODUCT 01: BridgeSign ── -->
-        <div class="product-layer active" data-product="0" role="tabpanel" aria-label="BridgeSign">
-          <div class="product-frame product-frame--tablet">
-            <div class="tablet-bar">
-              <div class="tb-notch"></div>
-              <div class="tb-time">09:41</div>
-              <div class="tb-icons">
-                <svg viewBox="0 0 18 12" width="15" fill="currentColor" opacity=".6"><rect x="0" y="4" width="2" height="8" rx="1"/><rect x="5" y="2" width="2" height="10" rx="1"/><rect x="10" y="0" width="2" height="12" rx="1"/><rect x="15" y="3" width="2" height="9" rx="1" opacity=".3"/></svg>
-                <svg viewBox="0 0 20 16" width="16" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".6"><path d="M2 5.5C5 2 15 2 18 5.5" stroke-linecap="round"/><path d="M5 8.5C7 6.5 13 6.5 15 8.5" stroke-linecap="round"/><path d="M8 11.5C9 10.5 11 10.5 12 11.5" stroke-linecap="round"/><circle cx="10" cy="14" r="1" fill="currentColor"/></svg>
-                <svg viewBox="0 0 24 12" width="22" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".6"><rect x="0" y="1" width="20" height="10" rx="2"/><path d="M21 4v4" stroke-linecap="round"/><rect x="1.5" y="2.5" width="15" height="7" rx="1" fill="currentColor"/></svg>
-              </div>
-            </div>
-            <div class="tablet-content">
-              <div class="mock-bridgesign">
-                <div class="bs-header">
-                  <div class="bs-logo">
-                    <svg class="bs-logo-icon" viewBox="0 0 22 22" fill="none">
-                      <path d="M11 2C7.5 2 5 4.8 5 8.2 5 11.5 7.2 14.2 9.5 15.8L11 17l1.5-1.2C15 14.2 17 11.5 17 8.2 17 4.8 14.5 2 11 2Z" stroke="#C21A03" stroke-width="1.5"/>
-                      <path d="M8 9l2 2 4-4" stroke="#C21A03" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span>BridgeSign</span>
-                  </div>
-                  <div class="bs-active-badge"><span class="bs-active-dot"></span>Active</div>
-                </div>
-                <div class="bs-body">
-                  <div class="bs-camera">
-                    <div class="bs-cam-label">
-                      <span>Live Camera Feed</span>
-                      <span class="bs-rec">● REC</span>
-                    </div>
-                    <div class="bs-cam-view">
-                      <div class="cam-corner cam-tl"></div>
-                      <div class="cam-corner cam-tr"></div>
-                      <div class="cam-corner cam-bl"></div>
-                      <div class="cam-corner cam-br"></div>
-                      <svg class="hand-skeleton" viewBox="0 0 120 160" fill="none">
-                        <ellipse cx="60" cy="120" rx="34" ry="34" stroke="rgba(194,26,3,0.5)" stroke-width="1.5"/>
-                        <path d="M28 110Q16 88 12 64" stroke="rgba(194,26,3,0.8)" stroke-width="2" stroke-linecap="round"/>
-                        <path d="M40 84Q36 54 33 24" stroke="rgba(194,26,3,0.8)" stroke-width="2" stroke-linecap="round"/>
-                        <path d="M57 80Q56 46 56 16" stroke="rgba(194,26,3,0.8)" stroke-width="2" stroke-linecap="round"/>
-                        <path d="M73 82Q74 50 77 24" stroke="rgba(194,26,3,0.8)" stroke-width="2" stroke-linecap="round"/>
-                        <path d="M84 92Q91 68 96 50" stroke="rgba(194,26,3,0.8)" stroke-width="2" stroke-linecap="round"/>
-                        <circle cx="40" cy="84" r="3" fill="#C21A03"/>
-                        <circle cx="57" cy="80" r="3" fill="#C21A03"/>
-                        <circle cx="73" cy="82" r="3" fill="#C21A03"/>
-                        <circle cx="84" cy="92" r="3" fill="#C21A03"/>
-                        <circle cx="33" cy="24" r="2" fill="rgba(194,26,3,0.6)"/>
-                        <circle cx="56" cy="16" r="2" fill="rgba(194,26,3,0.6)"/>
-                        <circle cx="77" cy="24" r="2" fill="rgba(194,26,3,0.6)"/>
-                        <circle cx="96" cy="50" r="2" fill="rgba(194,26,3,0.6)"/>
-                      </svg>
-                      <div class="cam-detect-bar">
-                        <span class="cdb-label">Hand Tracking</span>
-                        <div class="cdb-progress"><div class="cdb-fill" style="width:94%"></div></div>
-                        <span class="cdb-pct">94%</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="bs-translation">
-                    <div class="bst-label">Translation Output</div>
-                    <div class="bst-output">
-                      <p class="bst-text">"Hello, how are you today?"</p>
-                    </div>
-                    <div class="bst-detected">
-                      <span class="bsd-tag">DETECTED</span>
-                      <span class="bsd-word">HELLO</span>
-                    </div>
-                    <div class="bst-actions">
-                      <button class="bs-btn bs-btn--primary">▶ Speak</button>
-                      <button class="bs-btn">Copy</button>
-                      <button class="bs-btn">Clear</button>
-                    </div>
-                  </div>
-                </div>
-                <div class="bs-bottom-nav">
-                  <button class="bs-bnav-item bs-bnav-active">Translate</button>
-                  <button class="bs-bnav-item">Learn</button>
-                  <button class="bs-bnav-item">Emergency</button>
-                  <button class="bs-bnav-item">History</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="product-info">
-            <span class="product-category">AI · ACCESSIBILITY · COMMUNICATION</span>
-            <h3 class="product-name">BridgeSign</h3>
-            <p class="product-desc">Technology designed to help bridge communication through sign-language recognition and accessible digital interaction.</p>
-            <a href="#work" class="product-link" id="plink-1">Explore BridgeSign <span class="plink-arrow">→</span></a>
-          </div>
-        </div>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#products">Products</a>
+        <a href="#experience">Experience</a>
+        <a href="#team">Team</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
 
-        <!-- ── PRODUCT 02: Nzeru Systems ── -->
-        <div class="product-layer" data-product="1" role="tabpanel" aria-label="Nzeru Systems">
-          <div class="product-frame product-frame--browser">
-            <div class="browser-chrome">
-              <div class="browser-dots"><span class="bd-r"></span><span class="bd-y"></span><span class="bd-g"></span></div>
-              <div class="browser-url-bar">
-                <svg viewBox="0 0 12 16" width="8" fill="currentColor" opacity=".35"><path d="M6 0C4 0 2 2 2 4v2H1c-.6 0-1 .4-1 1v8c0 .6.4 1 1 1h10c.6 0 1-.4 1-1V7c0-.6-.4-1-1-1h-1V4C10 2 8 0 6 0zm-2 4c0-1 .9-2 2-2s2 1 2 2v2H4V4z"/></svg>
-                <span>nzeru.systems / dashboard</span>
-              </div>
-            </div>
-            <div class="browser-content">
-              <div class="mock-systems">
-                <div class="sys-sidebar">
-                  <div class="sys-brand"><span class="sys-brand-dot"></span><span>Nzeru Systems</span></div>
-                  <nav class="sys-nav">
-                    <a class="sys-nav-item sys-nav-active">Dashboard</a>
-                    <a class="sys-nav-item">Users</a>
-                    <a class="sys-nav-item">Transactions</a>
-                    <a class="sys-nav-item">Reports</a>
-                    <a class="sys-nav-item">Alerts <span class="sys-badge">3</span></a>
-                  </nav>
-                </div>
-                <div class="sys-main">
-                  <div class="sys-header">
-                    <div>
-                      <div class="sys-greeting">Good morning, Operations</div>
-                      <div class="sys-date">Monday, 24 August 2026</div>
-                    </div>
-                    <div class="sys-avatar">NS</div>
-                  </div>
-                  <div class="sys-kpis">
-                    <div class="sys-kpi">
-                      <span class="sk-label">Revenue</span>
-                      <span class="sk-value">MK 2.45M</span>
-                      <span class="sk-delta sk-up">↑ 12%</span>
-                    </div>
-                    <div class="sys-kpi">
-                      <span class="sk-label">Users</span>
-                      <span class="sk-value">1,247</span>
-                      <span class="sk-delta sk-up">↑ 5%</span>
-                    </div>
-                    <div class="sys-kpi">
-                      <span class="sk-label">Transactions</span>
-                      <span class="sk-value">8,432</span>
-                      <span class="sk-delta sk-up">↑ 23%</span>
-                    </div>
-                    <div class="sys-kpi">
-                      <span class="sk-label">Growth</span>
-                      <span class="sk-value">+18.4%</span>
-                      <span class="sk-delta sk-up">This month</span>
-                    </div>
-                  </div>
-                  <div class="sys-chart-block">
-                    <div class="scb-header">
-                      <span class="scb-title">Revenue Trend</span>
-                      <div class="scb-tabs">
-                        <span class="scb-tab scb-tab-active">7D</span>
-                        <span class="scb-tab">30D</span>
-                      </div>
-                    </div>
-                    <svg class="sys-chart-svg" viewBox="0 0 300 70" preserveAspectRatio="none">
-                      <defs>
-                        <linearGradient id="sg1" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="0%" stop-color="#C21A03" stop-opacity="0.38"/>
-                          <stop offset="100%" stop-color="#C21A03" stop-opacity="0"/>
-                        </linearGradient>
-                      </defs>
-                      <path d="M0,58 L33,48 L66,52 L99,34 L132,40 L165,22 L198,30 L231,16 L264,22 L300,12 L300,70 L0,70 Z" fill="url(#sg1)"/>
-                      <path d="M0,58 L33,48 L66,52 L99,34 L132,40 L165,22 L198,30 L231,16 L264,22 L300,12" fill="none" stroke="#C21A03" stroke-width="1.5"/>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="product-info">
-            <span class="product-category">SaaS · BUSINESS MANAGEMENT</span>
-            <h3 class="product-name">Nzeru Systems</h3>
-            <p class="product-desc">Subscription-based digital systems designed to simplify everyday organizational operations.</p>
-            <a href="#work" class="product-link" id="plink-2">Explore Nzeru Systems <span class="plink-arrow">→</span></a>
-          </div>
-        </div>
+      </nav>
 
-        <!-- ── PRODUCT 03: Nzeru Intelligence ── -->
-        <div class="product-layer" data-product="2" role="tabpanel" aria-label="Nzeru Intelligence">
-          <div class="product-frame product-frame--browser">
-            <div class="browser-chrome">
-              <div class="browser-dots"><span class="bd-r"></span><span class="bd-y"></span><span class="bd-g"></span></div>
-              <div class="browser-url-bar">
-                <svg viewBox="0 0 12 16" width="8" fill="currentColor" opacity=".35"><path d="M6 0C4 0 2 2 2 4v2H1c-.6 0-1 .4-1 1v8c0 .6.4 1 1 1h10c.6 0 1-.4 1-1V7c0-.6-.4-1-1-1h-1V4C10 2 8 0 6 0zm-2 4c0-1 .9-2 2-2s2 1 2 2v2H4V4z"/></svg>
-                <span>intelligence.nzeru.io / analytics</span>
-              </div>
-            </div>
-            <div class="browser-content">
-              <div class="mock-intelligence">
-                <div class="intel-topbar">
-                  <div class="intel-tabs">
-                    <span class="it-tab it-active">Overview</span>
-                    <span class="it-tab">AI Insights</span>
-                  </div>
-                  <div class="intel-date">Aug 1 — Aug 24, 2026</div>
-                </div>
-                <div class="intel-metrics">
-                  <div class="intel-m">
-                    <span class="im-lbl">Total Revenue</span>
-                    <span class="im-val">MK 4.2M</span>
-                    <span class="im-tr im-up">↑ 22%</span>
-                  </div>
-                  <div class="intel-m">
-                    <span class="im-lbl">Sessions</span>
-                    <span class="im-val">18,420</span>
-                    <span class="im-tr im-up">↑ 8%</span>
-                  </div>
-                  <div class="intel-m">
-                    <span class="im-lbl">Conversion</span>
-                    <span class="im-val">3.4%</span>
-                    <span class="im-tr im-down">↓ 0.2%</span>
-                  </div>
-                </div>
-                <div class="intel-insight">
-                  <div class="ii-header">
-                    <span>AI Insight</span>
-                  </div>
-                  <p class="ii-text">Peak activity on Tuesdays between 10am–2pm. Consider scheduling campaigns around this window for maximum conversion.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="product-info">
-            <span class="product-category">DATA · ANALYTICS · AI INSIGHTS</span>
-            <h3 class="product-name">Nzeru Intelligence</h3>
-            <p class="product-desc">Turn operational data into useful insights that help organizations understand what is happening and make better decisions.</p>
-            <a href="#work" class="product-link" id="plink-3">Explore Nzeru Intelligence <span class="plink-arrow">→</span></a>
-          </div>
-        </div>
+      <button type="button" class="nav-cta" data-open-modal="quote">
+        GET STARTED
+      </button>
 
-        <!-- ── PRODUCT 04: Nzeru Cyber ── -->
-        <div class="product-layer" data-product="3" role="tabpanel" aria-label="Nzeru Cyber">
-          <div class="product-frame product-frame--browser">
-            <div class="browser-chrome">
-              <div class="browser-dots"><span class="bd-r"></span><span class="bd-y"></span><span class="bd-g"></span></div>
-              <div class="browser-url-bar">
-                <svg viewBox="0 0 12 16" width="8" fill="currentColor" opacity=".35"><path d="M6 0C4 0 2 2 2 4v2H1c-.6 0-1 .4-1 1v8c0 .6.4 1 1 1h10c.6 0 1-.4 1-1V7c0-.6-.4-1-1-1h-1V4C10 2 8 0 6 0zm-2 4c0-1 .9-2 2-2s2 1 2 2v2H4V4z"/></svg>
-                <span>cyber.nzeru.io / security-center</span>
-              </div>
-            </div>
-            <div class="browser-content">
-              <div class="mock-cyber">
-                <div class="cyber-topbar">
-                  <span class="cyber-title-text">Security Center</span>
-                  <span class="cy-scan-time">Last scan: 2m ago</span>
-                </div>
-                <div class="cyber-body">
-                  <div class="cyber-score-col">
-                    <div class="cy-score-label">Security Score</div>
-                    <div class="cy-ring-wrapper">
-                      <svg viewBox="0 0 120 120" class="cy-ring-svg">
-                        <circle cx="60" cy="60" r="48" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="7"/>
-                        <circle cx="60" cy="60" r="48" fill="none" stroke="#C21A03" stroke-width="7"
-                          stroke-dasharray="271 302" stroke-dashoffset="75"
-                          stroke-linecap="round" transform="rotate(-90 60 60)"/>
-                        <text x="60" y="54" text-anchor="middle" fill="#FFFFFF" font-size="26" font-weight="700" font-family="Syne,sans-serif">94</text>
-                      </svg>
-                    </div>
-                  </div>
-                  <div class="cyber-right-col">
-                    <div class="cy-threats">
-                      <div class="cyt-header">Threat Monitor</div>
-                      <div class="cyt-clear">No active threats detected</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="product-info">
-            <span class="product-category">CYBERSECURITY</span>
-            <h3 class="product-name">Nzeru Cyber</h3>
-            <p class="product-desc">Cybersecurity services designed to help organizations identify risks, protect systems and build stronger digital environments.</p>
-            <a href="#work" class="product-link" id="plink-4">Explore Nzeru Cyber <span class="plink-arrow">→</span></a>
-          </div>
-        </div>
-
-      </div><!-- /product-stack -->
-    </div><!-- /products-right -->
-  </div><!-- /products-sticky -->
-</section>
-
-<!-- ===================== NETWORK / TECHNOLOGY SECTION ===================== -->
-<section class="network-section" id="network">
-  <div class="network-inner">
-    <div class="network-header" data-reveal>
-      <span class="section-label">CONNECTED ECOSYSTEM</span>
-      <h2>Technology connected around your business.</h2>
-      <p class="network-sub">Systems → Data → People → Decisions. We build interconnected digital platforms where information flows securely and intelligently.</p>
-    </div>
-    <div class="network-canvas-container" data-reveal>
-      <canvas id="networkCanvas" width="1200" height="450" aria-label="Interactive network visualization showing connected data flows"></canvas>
-      <div class="network-nodes-legend">
-        <div class="nl-item"><span class="nl-dot nl-dot--red"></span><span>Systems &amp; APIs</span></div>
-        <div class="nl-item"><span class="nl-dot nl-dot--teal"></span><span>Data Pipelines</span></div>
-        <div class="nl-item"><span class="nl-dot nl-dot--white"></span><span>User Interaction</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== SERVICES ===================== -->
-<section class="services-section" id="services">
-  <div class="services-inner">
-    <div class="services-header" data-reveal>
-      <span class="section-label">WHAT WE DO</span>
-      <h2>Four practice areas.<br>One integrated approach.</h2>
-    </div>
-    <div class="services-list">
-      <div class="service-row" data-reveal id="srv-1">
-        <div class="srv-left">
-          <span class="srv-num">01</span>
-          <div class="srv-expand-btn" aria-label="Expand Nzeru Solutions">+</div>
-        </div>
-        <div class="srv-content">
-          <h3 class="srv-name">Nzeru Solutions</h3>
-          <span class="srv-sub">Software Development &amp; Digital Services</span>
-          <div class="srv-detail">
-            <p>Custom software built to fit your exact business needs. From web applications and mobile platforms to system integrations and digital transformation projects.</p>
-            <ul class="srv-caps">
-              <li>Web &amp; Mobile Applications</li>
-              <li>System Integration &amp; APIs</li>
-              <li>Digital Transformation</li>
-              <li>IT Consulting &amp; Architecture</li>
-            </ul>
-          </div>
-        </div>
-        <div class="srv-divider"></div>
-      </div>
-      <div class="service-row" data-reveal id="srv-2">
-        <div class="srv-left">
-          <span class="srv-num">02</span>
-          <div class="srv-expand-btn" aria-label="Expand Nzeru Systems">+</div>
-        </div>
-        <div class="srv-content">
-          <h3 class="srv-name">Nzeru Systems</h3>
-          <span class="srv-sub">Subscription-Based Software / SaaS</span>
-          <div class="srv-detail">
-            <p>Ready-to-use digital systems delivered as a service. Subscribe, configure, and run your operations without the complexity of building from scratch.</p>
-            <ul class="srv-caps">
-              <li>Business Management Systems</li>
-              <li>School Management Systems</li>
-              <li>Financial Management</li>
-              <li>HR &amp; Payroll Systems</li>
-            </ul>
-          </div>
-        </div>
-        <div class="srv-divider"></div>
-      </div>
-      <div class="service-row" data-reveal id="srv-3">
-        <div class="srv-left">
-          <span class="srv-num">03</span>
-          <div class="srv-expand-btn" aria-label="Expand Nzeru Cyber">+</div>
-        </div>
-        <div class="srv-content">
-          <h3 class="srv-name">Nzeru Cyber</h3>
-          <span class="srv-sub">Cybersecurity Services</span>
-          <div class="srv-detail">
-            <p>Protect your digital systems and business data. We identify vulnerabilities, implement security controls, and help you build a more resilient digital operation.</p>
-            <ul class="srv-caps">
-              <li>Security Audits &amp; Assessments</li>
-              <li>Threat Monitoring &amp; Response</li>
-              <li>Security Infrastructure Setup</li>
-              <li>Incident Response Planning</li>
-            </ul>
-          </div>
-        </div>
-        <div class="srv-divider"></div>
-      </div>
-      <div class="service-row" data-reveal id="srv-4">
-        <div class="srv-left">
-          <span class="srv-num">04</span>
-          <div class="srv-expand-btn" aria-label="Expand Nzeru Intelligence">+</div>
-        </div>
-        <div class="srv-content">
-          <h3 class="srv-name">Nzeru Intelligence</h3>
-          <span class="srv-sub">Data, Analytics &amp; AI Insights</span>
-          <div class="srv-detail">
-            <p>Turn your business data into clear, actionable intelligence. We build analytics platforms and AI-powered tools that help decision-makers understand what's happening and what to do next.</p>
-            <ul class="srv-caps">
-              <li>Business Intelligence Dashboards</li>
-              <li>Data Engineering &amp; Pipelines</li>
-              <li>AI-Powered Analytics</li>
-              <li>Custom Reporting &amp; Visualization</li>
-            </ul>
-          </div>
-        </div>
-        <div class="srv-divider"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== COMPANY STORY ===================== -->
-<section class="story-section">
-  <div class="story-inner">
-    <div class="story-content" data-reveal>
-      <span class="section-label">OUR PHILOSOPHY</span>
-      <h2 class="story-heading">We don't just theorize.<br>We build.</h2>
-      <div class="story-body">
-        <p class="story-lead">Nzeru Digital combines deep software engineering with cybersecurity, data analytics and AI to deliver complete digital solutions — not just advice.</p>
-        <p>We understand the Malawian business environment, the infrastructure realities, and the practical challenges organizations face every day. Our systems are built to work reliably in that exact context.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== EXPERIENCE / OUR WORK ===================== -->
-<section class="work-section" id="work">
-  <div class="work-inner">
-    <div class="work-header" data-reveal>
-      <span class="section-label">SELECTED WORK</span>
-      <h2>Systems we've built.<br>Problems we've solved.</h2>
-    </div>
-    <div class="work-items">
-
-      <div class="work-item" data-reveal>
-        <div class="wi-left">
-          <div class="wi-meta"><span class="wi-idx">01</span><span class="wi-industry">AI · Accessibility · Communication</span></div>
-          <h3 class="wi-title">BridgeSign</h3>
-          <div class="wi-psr">
-            <div class="psr-block"><span class="psr-lbl">Problem</span><p>Deaf and hard-of-hearing individuals face severe communication barriers in healthcare, education and business environments.</p></div>
-            <div class="psr-block"><span class="psr-lbl">Solution</span><p>An AI-powered mobile and tablet application providing real-time sign language recognition and voice translation.</p></div>
-            <div class="psr-block"><span class="psr-lbl">Result</span><p>Direct communication bridge enabling inclusive interaction without requiring a specialized human interpreter.</p></div>
-          </div>
-          <div class="wi-tags">
-            <span class="wi-tag">AI / Machine Learning</span>
-            <span class="wi-tag">Mobile App</span>
-            <span class="wi-tag">Accessibility</span>
-          </div>
-        </div>
-        <div class="wi-right">
-          <div class="work-preview wp-bridgesign">
-            <div class="wp-chrome"><span class="wp-dot"></span><span class="wp-label">BridgeSign App</span></div>
-            <div class="wp-body">
-              <div class="wp-cam">
-                <svg class="wp-hand" viewBox="0 0 80 110" fill="none">
-                  <ellipse cx="40" cy="80" rx="22" ry="24" stroke="rgba(194,26,3,0.5)" stroke-width="1.5"/>
-                  <circle cx="28" cy="56" r="2.5" fill="#C21A03"/>
-                  <circle cx="38" cy="52" r="2.5" fill="#C21A03"/>
-                  <circle cx="48" cy="54" r="2.5" fill="#C21A03"/>
-                </svg>
-              </div>
-              <div class="wp-output">
-                <div class="wpo-label">Translation</div>
-                <div class="wpo-text">"Hello"</div>
-                <div class="wpo-conf">94% confidence</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="work-item work-item--alt" data-reveal>
-        <div class="wi-left">
-          <div class="wi-meta"><span class="wi-idx">02</span><span class="wi-industry">Finance · Advisory · SaaS</span></div>
-          <h3 class="wi-title">Pinnacle Smart Advisor</h3>
-          <div class="wi-psr">
-            <div class="psr-block"><span class="psr-lbl">Problem</span><p>Financial firms relied on manual spreadsheets and paper records to manage client loans and repayments.</p>
-            <div class="psr-block"><span class="psr-lbl">Solution</span><p>A centralized financial advisory and loan management SaaS platform for automated record-keeping and tracking.</p></div>
-            <div class="psr-block"><span class="psr-lbl">Result</span><p>Reduced processing overhead and eliminated manual calculation errors across active loan portfolios.</p></div>
-          </div>
-          <div class="wi-tags">
-            <span class="wi-tag">FinTech</span>
-            <span class="wi-tag">SaaS Platform</span>
-            <span class="wi-tag">Loan Advisory</span>
-          </div>
-        </div>
-        <div class="wi-right">
-          <div class="work-preview wp-pinnacle">
-            <div class="wp-chrome"><span class="wp-dot"></span><span class="wp-label">Pinnacle Dashboard</span></div>
-            <div class="wp-body wp-body--col">
-              <div class="wp-kpis">
-                <div class="wp-kpi"><span class="wpk-val">MK 8.4M</span><span class="wpk-lbl">Portfolio</span></div>
-                <div class="wp-kpi"><span class="wpk-val">342</span><span class="wpk-lbl">Active Loans</span></div>
-                <div class="wp-kpi"><span class="wpk-val">96.4%</span><span class="wpk-lbl">Repayment</span></div>
-              </div>
-              <svg class="wp-chart" viewBox="0 0 200 55" preserveAspectRatio="none">
-                <defs><linearGradient id="pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C21A03" stop-opacity="0.38"/><stop offset="100%" stop-color="#C21A03" stop-opacity="0"/></linearGradient></defs>
-                <path d="M0,48 L25,40 L50,43 L75,28 L100,34 L125,20 L150,26 L175,12 L200,17 L200,55 L0,55 Z" fill="url(#pg)"/>
-                <path d="M0,48 L25,40 L50,43 L75,28 L100,34 L125,20 L150,26 L175,12 L200,17" fill="none" stroke="#C21A03" stroke-width="1.5" stroke-linecap="round"/>
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
+      <button class="mobile-toggle" id="mobileToggle">
+        <span></span>
+        <span></span>
+      </button>
 
     </div>
-  </div>
-</section>
 
-<!-- ===================== TEAM ===================== -->
-<section class="team-section" id="team">
-  <div class="team-inner">
-    <div class="team-header" data-reveal>
-      <span class="section-label">THE TEAM</span>
-      <h2>Built by people who care about the work.</h2>
-    </div>
-    <div class="team-grid">
-      <div class="team-card" data-reveal>
-        <div class="tc-photo-wrap">
-          <img src="assets/images/team/joel.jpg" alt="Joel Chaula Ndege" class="tc-photo" id="tcp-joel" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="tc-fallback" style="display:none" aria-hidden="true">JN</div>
-          <div class="tc-photo-overlay"></div>
-        </div>
-        <div class="tc-info">
-          <h3 class="tc-name">Joel Chaula Ndege</h3>
-          <span class="tc-role">Chief Executive Officer &amp; Founder</span>
-        </div>
-      </div>
-      <div class="team-card" data-reveal>
-        <div class="tc-photo-wrap">
-          <img src="assets/images/team/jabulani.jpg" alt="Jabulani Benson Mayenda" class="tc-photo" id="tcp-jabulani" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="tc-fallback" style="display:none" aria-hidden="true">JM</div>
-          <div class="tc-photo-overlay"></div>
-        </div>
-        <div class="tc-info">
-          <h3 class="tc-name">Jabulani Benson Mayenda</h3>
-          <span class="tc-role">Chief Technology Officer</span>
-        </div>
-      </div>
-      <div class="team-card" data-reveal>
-        <div class="tc-photo-wrap">
-          <img src="assets/images/team/blessings.jpg" alt="Blessings Ghambi" class="tc-photo" id="tcp-blessings" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="tc-fallback" style="display:none" aria-hidden="true">BG</div>
-          <div class="tc-photo-overlay"></div>
-        </div>
-        <div class="tc-info">
-          <h3 class="tc-name">Blessings Ghambi</h3>
-          <span class="tc-role">Chief Operations Officer</span>
-        </div>
-      </div>
-      <div class="team-card" data-reveal>
-        <div class="tc-photo-wrap">
-          <img src="assets/images/team/thendeka.jpg" alt="Thendeka Malink" class="tc-photo" id="tcp-thendeka" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="tc-fallback" style="display:none" aria-hidden="true">TM</div>
-          <div class="tc-photo-overlay"></div>
-        </div>
-        <div class="tc-info">
-          <h3 class="tc-name">Thendeka Malink</h3>
-          <span class="tc-role">Chief Marketing Officer</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  </header>
 
-<!-- ===================== FINAL CTA ===================== -->
-<section class="cta-section" id="contact">
-  <div class="cta-inner">
-    <div class="cta-glow" aria-hidden="true"></div>
-    <span class="section-label" data-reveal>GET IN TOUCH</span>
-    <h2 class="cta-heading" data-reveal>Have a problem worth solving?</h2>
-    <p class="cta-sub" data-reveal>Let's turn it into a digital system that works.</p>
-    <div class="cta-buttons" data-reveal>
-      <a href="mailto:hello@nzeru.digital" class="btn btn-primary btn-lg" id="cta-primary-btn">Start a Project&nbsp;→</a>
-      <a href="#team" class="btn btn-ghost btn-lg" id="cta-secondary-btn">Talk to Nzeru&nbsp;→</a>
-    </div>
-    <div class="cta-contact" data-reveal>
-      <a href="mailto:hello@nzeru.digital" class="cta-contact-item">hello@nzeru.digital</a>
-      <span class="cta-contact-sep">·</span>
-      <span class="cta-contact-item">Lilongwe, Malawi</span>
-    </div>
-  </div>
-</section>
 
-<!-- ===================== FOOTER ===================== -->
-<footer class="footer" role="contentinfo">
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="footer-logo">
-          <img src="assets/images/logo.png" alt="Nzeru Digital" class="footer-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <span class="footer-logo-text" style="display:none">NZERU<span class="logo-dot">.</span></span>
+
+  <!-- =======================================================
+       HERO
+  ======================================================== -->
+
+  <main>
+
+    <section class="hero" id="home">
+
+      <canvas id="particle-canvas"></canvas>
+
+      <div class="container hero-content">
+
+        <div class="hero-kicker">
+          <i></i>
+          SMART DIGITAL SOLUTIONS
         </div>
-        <p class="footer-tagline">Smart Systems.<br>Secure Businesses.<br>Better Decisions.</p>
-        <div class="footer-social">
-          <a href="#" class="social-link" aria-label="LinkedIn" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" width="16" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>
+
+        <h1 class="hero-title" aria-label="Nzeru">
+
+          <span>N</span>
+          <span>Z</span>
+          <span>E</span>
+          <span>R</span>
+          <span>U</span>
+
+        </h1>
+
+        <h2 class="hero-subtitle">
+          Smart systems.
+          Secure businesses.
+          <span>Better decisions.</span>
+        </h2>
+
+        <div class="hero-bottom">
+
+          <p class="hero-description">
+            We build practical digital solutions that help
+            businesses, schools and healthcare providers
+            move from manual processes to smarter systems.
+          </p>
+
+          <a href="#services" class="btn">
+            <span>EXPLORE NZERU →</span>
           </a>
-          <a href="#" class="social-link" aria-label="X / Twitter" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" width="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4l16 16M20 4L4 20"/></svg>
-          </a>
-          <a href="#" class="social-link" aria-label="Facebook" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" width="16" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <span class="fc-title">Company</span>
-          <a href="#about" class="fc-link">About Us</a>
-          <a href="#team" class="fc-link">Our Team</a>
-          <a href="#work" class="fc-link">Our Work</a>
-          <a href="#network" class="fc-link">Technology</a>
-          <a href="#contact" class="fc-link">Contact</a>
-        </div>
-        <div class="footer-col">
-          <span class="fc-title">Services</span>
-          <a href="#services" class="fc-link">Nzeru Solutions</a>
-          <a href="#services" class="fc-link">Nzeru Systems</a>
-          <a href="#services" class="fc-link">Nzeru Cyber</a>
-          <a href="#services" class="fc-link">Nzeru Intelligence</a>
-        </div>
-        <div class="footer-col">
-          <span class="fc-title">Products</span>
-          <a href="#products" class="fc-link">BridgeSign</a>
-          <a href="#products" class="fc-link">Nzeru Systems</a>
-          <a href="#products" class="fc-link">Nzeru Intelligence</a>
-          <a href="#products" class="fc-link">Nzeru Cyber</a>
-        </div>
-        <div class="footer-col">
-          <span class="fc-title">Contact</span>
-          <a href="mailto:hello@nzeru.digital" class="fc-link">hello@nzeru.digital</a>
-          <span class="fc-text">Lilongwe, Malawi</span>
-          <a href="#contact" class="fc-link">Start a Project</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span class="footer-copy">© 2026 Nzeru Digital Services. All rights reserved.</span>
-      <div class="footer-bottom-links">
-        <a href="#" class="fbl-link">Privacy Policy</a>
-        <a href="#" class="fbl-link">Terms of Service</a>
-      </div>
-    </div>
-  </div>
-</footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
-<script src="js/main.js?v=3"></script>
+        </div>
+
+      </div>
+
+      <div class="hero-scroll">
+        SCROLL TO EXPLORE
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SERVICES
+    ====================================================== -->
+
+    <section class="section services" id="services">
+
+      <div class="container">
+
+        <div class="services-heading reveal">
+
+          <div>
+            <div class="eyebrow">01 / What We Do</div>
+
+            <h2 class="section-title">
+              Technology built around
+              <span>your business.</span>
+            </h2>
+          </div>
+
+          <p class="body-copy">
+            From software and business systems to cybersecurity
+            and AI-powered insights, we build technology that
+            is practical, secure and useful.
+          </p>
+
+        </div>
+
+
+        <div class="services-list">
+
+          <a href="#contact" class="service reveal">
+
+            <div class="service-number">01</div>
+
+            <div class="service-name">
+              Nzeru Solutions
+            </div>
+
+            <div class="service-description">
+              Software development, websites and
+              custom digital solutions.
+            </div>
+
+            <div class="service-arrow">
+              ↗
+            </div>
+
+          </a>
+
+
+          <a href="#contact" class="service reveal">
+
+            <div class="service-number">02</div>
+
+            <div class="service-name">
+              Nzeru Systems
+            </div>
+
+            <div class="service-description">
+              Subscription-based business and
+              management systems.
+            </div>
+
+            <div class="service-arrow">
+              ↗
+            </div>
+
+          </a>
+
+
+          <a href="#contact" class="service reveal">
+
+            <div class="service-number">03</div>
+
+            <div class="service-name">
+              Nzeru Cyber
+            </div>
+
+            <div class="service-description">
+              Cybersecurity audits, protection,
+              awareness and training.
+            </div>
+
+            <div class="service-arrow">
+              ↗
+            </div>
+
+          </a>
+
+
+          <a href="#contact" class="service reveal">
+
+            <div class="service-number">04</div>
+
+            <div class="service-name">
+              Nzeru Intelligence
+            </div>
+
+            <div class="service-description">
+              Data analytics, reporting and
+              AI-powered business insights.
+            </div>
+
+            <div class="service-arrow">
+              ↗
+            </div>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         ABOUT
+    ====================================================== -->
+
+    <section class="section" id="about">
+
+      <div class="container about-grid">
+
+        <div class="about-image reveal">
+
+          <div class="about-number">02</div>
+
+          <div class="about-image-main">
+            <img
+              src="assets/team/joel.jpeg"
+              alt="Nzeru Digital team"
+            />
+          </div>
+
+          <!-- floating stat badges -->
+          <div class="about-stat" style="bottom:80px;left:-10px;">
+            <div class="about-stat-num">50+</div>
+            <div class="about-stat-label">Projects Delivered</div>
+          </div>
+
+          <div class="about-stat" style="top:60px;left:10px;">
+            <div class="about-stat-num">4</div>
+            <div class="about-stat-label">Core Services</div>
+          </div>
+
+          <div class="about-strip"></div>
+          <div class="about-accent"></div>
+
+        </div>
+
+
+        <div class="about-content reveal right">
+
+          <div class="eyebrow">02 / About Nzeru</div>
+
+          <h2 class="section-title">
+            Technology that replaces
+            confusion with <span>clarity.</span>
+          </h2>
+
+          <p class="body-copy">
+            Nzeru Digital is a Malawi-based technology company
+            helping organizations move away from manual,
+            stressful and paper-based processes toward
+            simple, intelligent and secure digital systems.
+          </p>
+
+          <br>
+
+          <p class="body-copy">
+            We combine software development, business systems,
+            cybersecurity and data intelligence to help
+            organizations operate better and make better decisions.
+          </p>
+
+          <div class="about-pillars">
+            <span class="about-pillar">Software Dev</span>
+            <span class="about-pillar">SaaS Systems</span>
+            <span class="about-pillar">Cybersecurity</span>
+            <span class="about-pillar">AI &amp; Data</span>
+          </div>
+
+          <a href="#contact" class="btn">
+            <span>ABOUT NZERU →</span>
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PRODUCTS
+    ====================================================== -->
+
+    <section class="section products" id="products">
+
+      <div class="container">
+
+        <div class="products-header reveal">
+
+          <div>
+
+            <div class="eyebrow">
+              03 / Our Products
+            </div>
+
+            <h2 class="section-title">
+              Digital products
+              made for <span>real life.</span>
+            </h2>
+
+          </div>
+
+          <p class="body-copy">
+            Explore the systems and digital products
+            we build to solve real problems.
+          </p>
+
+        </div>
+
+
+        <div class="products-grid">
+
+
+          <!-- PRODUCT 1 -->
+
+          <article class="product-card reveal" data-product-id="business">
+
+            <div class="product-card-image">
+
+              <img
+                src="assets/products/product-1.jpg"
+                alt="Nzeru Business Management product"
+              />
+
+            </div>
+
+            <div class="product-overlay"></div>
+
+            <div class="product-content">
+
+              <div class="product-tag">
+                Nzeru Systems
+              </div>
+
+              <h3 class="product-name">
+                Business Management
+              </h3>
+
+              <p class="product-text">
+                A smarter way to manage everyday
+                business operations.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <div>
+
+            <!-- PRODUCT 2 -->
+
+            <article class="product-card reveal right" data-product-id="school">
+
+              <div class="product-card-image">
+
+                <img
+                  src="assets/products/product-2.jpg"
+                  alt="Nzeru School Systems product"
+                />
+
+              </div>
+
+              <div class="product-overlay"></div>
+
+              <div class="product-content">
+
+                <div class="product-tag">
+                  Nzeru Systems
+                </div>
+
+                <h3 class="product-name">
+                  School Systems
+                </h3>
+
+                <p class="product-text">
+                  Digital tools designed to simplify
+                  school administration.
+                </p>
+
+              </div>
+
+            </article>
+
+            <!-- PRODUCT 3 -->
+
+            <article class="product-card reveal" data-product-id="savings">
+
+              <div class="product-card-image">
+
+                <img
+                  src="assets/products/nzeru savings.jpeg"
+                  alt="Nzeru Savings product"
+                />
+
+              </div>
+
+              <div class="product-overlay"></div>
+
+              <div class="product-content">
+
+                <div class="product-tag">
+                  Nzeru Systems
+                </div>
+
+                <h3 class="product-name">
+                  Nzeru Savings
+                </h3>
+
+                <p class="product-text">
+                  Smart savings management
+                  for individuals and groups.
+                </p>
+
+              </div>
+
+            </article>
+
+          </div>
+
+
+          <!-- PRODUCT 4 & 5 — full-width row -->
+
+          <div style="grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:25px;margin-top:0;">
+
+            <article class="product-card reveal" data-product-id="bridge">
+
+              <div class="product-card-image">
+
+                <img
+                  src="assets/products/bridge sign.jpeg"
+                  alt="Bridge Sign product"
+                />
+
+              </div>
+
+              <div class="product-overlay"></div>
+
+              <div class="product-content">
+
+                <div class="product-tag">
+                  Nzeru Solutions
+                </div>
+
+                <h3 class="product-name">
+                  Bridge Sign
+                </h3>
+
+                <p class="product-text">
+                  Digital signage and display
+                  solutions for modern spaces.
+                </p>
+
+              </div>
+
+            </article>
+
+
+            <article class="product-card reveal right" data-product-id="data">
+
+              <div class="product-card-image">
+
+                <img
+                  src="assets/products/product-2.jpeg"
+                  alt="Nzeru School Systems"
+                />
+
+              </div>
+
+              <div class="product-overlay"></div>
+
+              <div class="product-content">
+
+                <div class="product-tag">
+                  Nzeru Intelligence
+                </div>
+
+                <h3 class="product-name">
+                  Data &amp; Insights
+                </h3>
+
+                <p class="product-text">
+                  Turn business data into useful
+                  information and better decisions.
+                </p>
+
+              </div>
+
+            </article>
+
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         EXPERIENCE
+    ====================================================== -->
+
+    <section class="section experience" id="experience">
+
+      <div class="experience-glow"></div>
+
+      <div class="container experience-grid">
+
+        <div class="reveal">
+
+          <div class="exp-live-badge">
+            <span class="exp-live-dot"></span>
+            Proven Track Record
+          </div>
+
+          <div class="eyebrow">
+            04 / Our Experience
+          </div>
+
+          <h2 class="section-title">
+            Real systems.
+            <span>Real impact.</span>
+          </h2>
+
+          <br>
+
+          <p class="body-copy">
+            Our team brings together skills in software
+            development, cybersecurity, data analytics,
+            AI insights, system integration and IT consulting.
+          </p>
+
+          <div class="exp-capabilities">
+            <span class="exp-chip"><i>+</i> Custom Software</span>
+            <span class="exp-chip"><i>+</i> SaaS Platforms</span>
+            <span class="exp-chip"><i>+</i> Cyber Defense</span>
+            <span class="exp-chip"><i>+</i> AI &amp; Analytics</span>
+            <span class="exp-chip"><i>+</i> Cloud Integration</span>
+          </div>
+
+          <a href="#contact" class="btn">
+            <span>WORK WITH US →</span>
+          </a>
+
+        </div>
+
+
+        <div class="stats reveal right" id="statsGrid">
+
+          <!-- STAT 1 -->
+          <div class="stat" data-tilt>
+            <div class="stat-top-bar"></div>
+            <div class="stat-watermark">01</div>
+            <div class="stat-num-wrap">
+              <div class="stat-number counter" data-target="50">0</div>
+              <span class="stat-plus">+</span>
+            </div>
+            <div class="stat-label">Projects Completed</div>
+            <div class="stat-sub">Custom systems, SaaS tools &amp; digital solutions</div>
+            <div class="stat-progress" style="--prog-w: 92%;">
+              <div class="stat-progress-bar"></div>
+            </div>
+          </div>
+
+
+          <!-- STAT 2 -->
+          <div class="stat" data-tilt>
+            <div class="stat-top-bar"></div>
+            <div class="stat-watermark">02</div>
+            <div class="stat-num-wrap">
+              <div class="stat-number counter" data-target="30">0</div>
+              <span class="stat-plus">+</span>
+            </div>
+            <div class="stat-label">Satisfied Clients</div>
+            <div class="stat-sub">Businesses, schools &amp; institutions served</div>
+            <div class="stat-progress" style="--prog-w: 84%;">
+              <div class="stat-progress-bar"></div>
+            </div>
+          </div>
+
+
+          <!-- STAT 3 -->
+          <div class="stat" data-tilt>
+            <div class="stat-top-bar"></div>
+            <div class="stat-watermark">03</div>
+            <div class="stat-num-wrap">
+              <div class="stat-number counter" data-target="5">0</div>
+              <span class="stat-plus">+</span>
+            </div>
+            <div class="stat-label">Key Sectors</div>
+            <div class="stat-sub">Finance, Education, Retail, Health &amp; Tech</div>
+            <div class="stat-progress" style="--prog-w: 78%;">
+              <div class="stat-progress-bar"></div>
+            </div>
+          </div>
+
+
+          <!-- STAT 4 -->
+          <div class="stat" data-tilt>
+            <div class="stat-top-bar"></div>
+            <div class="stat-watermark">04</div>
+            <div class="stat-num-wrap">
+              <div class="stat-number counter" data-target="4">0</div>
+              <span class="stat-plus">+</span>
+            </div>
+            <div class="stat-label">Core Pillars</div>
+            <div class="stat-sub">Solutions, Systems, Cyber &amp; Intelligence</div>
+            <div class="stat-progress" style="--prog-w: 100%;">
+              <div class="stat-progress-bar"></div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         TEAM
+    ====================================================== -->
+
+    <section class="section team" id="team">
+
+      <div class="container">
+
+        <div class="team-header reveal">
+
+          <div>
+
+            <div class="eyebrow">
+              05 / The Team
+            </div>
+
+            <h2 class="section-title">
+              Focused minds.
+              <span>Shared vision.</span>
+            </h2>
+
+          </div>
+
+          <p class="body-copy">
+            A multidisciplinary team building practical
+            digital solutions for businesses and institutions.
+          </p>
+
+        </div>
+
+
+        <div class="team-grid">
+
+
+          <!-- JOEL -->
+
+          <article class="team-card reveal">
+
+            <div class="team-number">
+              01
+            </div>
+
+            <div class="team-image">
+
+              <img
+                src="assets/team/joel.jpeg"
+                alt="Joel Jackson Chaula"
+              />
+
+            </div>
+
+            <div class="team-info">
+
+              <h3 class="team-name">
+                Joel Jackson Chaula
+              </h3>
+
+              <p class="team-role">
+                CEO & Founder
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- JABULANI -->
+
+          <article class="team-card reveal up">
+
+            <div class="team-number">
+              02
+            </div>
+
+            <div class="team-image">
+
+              <img
+                src="assets/team/jabulani.jpeg"
+                alt="Jabulani Benson Mayena"
+              />
+
+            </div>
+
+            <div class="team-info">
+
+              <h3 class="team-name">
+                Jabulani Benson Mayena
+              </h3>
+
+              <p class="team-role">
+                CTO & Co-Founder
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- BLESSINGS -->
+
+          <article class="team-card reveal up">
+
+            <div class="team-number">
+              03
+            </div>
+
+            <div class="team-image">
+
+              <img
+                src="assets/team/blessings.jpeg"
+                alt="Blessings Ghambi"
+              />
+
+            </div>
+
+            <div class="team-info">
+
+              <h3 class="team-name">
+                Blessings Ghambi
+              </h3>
+
+              <p class="team-role">
+                CPO & Co-Founder
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- THANDEKA -->
+
+          <article class="team-card reveal up">
+
+            <div class="team-number">
+              04
+            </div>
+
+            <div class="team-image">
+
+              <img
+                src="assets/team/thandeka.jpeg"
+                alt="Thandeka Malink"
+              />
+
+            </div>
+
+            <div class="team-info">
+
+              <h3 class="team-name">
+                Thandeka Malink
+              </h3>
+
+              <p class="team-role">
+                CMO
+              </p>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         ADVANTAGE
+    ====================================================== -->
+
+    <section class="section" id="advantage">
+
+      <div class="container advantage-grid">
+
+        <div class="reveal">
+
+          <div class="eyebrow">
+            06 / Our Advantage
+          </div>
+
+          <h2 class="section-title">
+            One company.
+            <span>Three advantages.</span>
+          </h2>
+
+          <br>
+
+          <p class="body-copy">
+            We combine technology, security and intelligence
+            so your digital systems don't just work —
+            they create value.
+          </p>
+
+        </div>
+
+
+        <div class="advantage-items">
+
+          <div class="advantage-card reveal">
+
+            <div class="advantage-icon">
+              ↗
+            </div>
+
+            <h3>
+              Integrated Solutions
+            </h3>
+
+            <p>
+              Software, systems and data designed
+              to work together.
+            </p>
+
+          </div>
+
+
+          <div class="advantage-card reveal">
+
+            <div class="advantage-icon">
+              ◇
+            </div>
+
+            <h3>
+              Security First
+            </h3>
+
+            <p>
+              Protecting your digital environment
+              at every level.
+            </p>
+
+          </div>
+
+
+          <div class="advantage-card reveal">
+
+            <div class="advantage-icon">
+              +
+            </div>
+
+            <h3>
+              Data That Speaks
+            </h3>
+
+            <p>
+              Turning information into insights
+              that support better decisions.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    <!-- =====================================================
+         FAQ
+    ====================================================== -->
+
+    <section class="section faq" id="faq">
+
+      <div class="container faq-grid">
+
+        <div class="reveal">
+
+          <div class="eyebrow">
+            07 / Common Questions
+          </div>
+
+          <h2 class="section-title">
+            Clear answers to <span>your questions.</span>
+          </h2>
+
+          <br>
+
+          <p class="body-copy">
+            Everything you need to know about working with Nzeru, our software rollout timelines, data security, and ongoing technical support.
+          </p>
+
+          <br>
+
+          <button type="button" class="btn" data-open-modal="quote">
+            <span>HAVE MORE QUESTIONS? →</span>
+          </button>
+
+        </div>
+
+
+        <div class="faq-list reveal right">
+
+          <!-- FAQ 1 -->
+          <div class="faq-item active">
+            <button type="button" class="faq-question">
+              <span>What types of organizations does Nzeru work with?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer" style="max-height: 200px;">
+              We partner with businesses of all sizes, academic institutions (primary to tertiary schools), financial and savings groups (SACCOs &amp; VSLAs), healthcare providers, and retail operations across Malawi and the surrounding region.
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>How do your SaaS products (School, Savings, Business) work?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Our products are delivered as secure, cloud-hosted software subscriptions. There is zero hardware burden on your side — we take care of server deployment, real-time data backups, security patches, and full staff onboarding.
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>Can Nzeru build custom software tailored to our business?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Absolutely. Through Nzeru Solutions, our development team designs custom web portals, mobile apps, and enterprise management tools mapped directly to your unique operational workflow.
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>How do you protect our confidential business data?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Security is built into our architecture from day one. We enforce end-to-end data encryption, multi-factor authentication, granular role permissions, and regular automated off-site backups with strict privacy compliance.
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>How quickly can we get started or schedule a live demo?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              You can get started immediately. Click 'Get Started' or message us on WhatsApp at +265 992 579 666. We can schedule a personalized live product walkthrough or consultation within 24 hours.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CTA
+    ====================================================== -->
+
+    <section class="section cta" id="contact">
+
+      <div class="container cta-inner">
+
+        <!-- LEFT: headline + CTA -->
+        <div class="cta-left reveal">
+
+          <div class="eyebrow">08 / Let's Build</div>
+
+          <h2 class="cta-title">
+            Ready to
+            <span>transform</span>
+            your business?
+          </h2>
+
+          <br>
+
+          <button type="button" class="btn" style="background:var(--red);" data-open-modal="quote">
+            <span>LET'S GET STARTED →</span>
+          </button>
+
+        </div>
+
+        <!-- RIGHT: contact details -->
+        <div class="cta-right reveal right">
+
+          <div class="cta-contact-label">Call Us</div>
+
+          <a href="tel:+265881103561" class="cta-contact-item">
+            <span class="cta-contact-icon">✆</span>
+            +265 881 103 561
+          </a>
+          <a href="tel:+265992579666" class="cta-contact-item">
+            <span class="cta-contact-icon">✆</span>
+            +265 992 579 666
+          </a>
+          <a href="tel:+265883414246" class="cta-contact-item">
+            <span class="cta-contact-icon">✆</span>
+            +265 883 414 246
+          </a>
+          <a href="tel:+265982842267" class="cta-contact-item">
+            <span class="cta-contact-icon">✆</span>
+            +265 982 842 267
+          </a>
+
+          <div class="cta-contact-label">Email</div>
+
+          <a href="mailto:nzerudigitalsytems@gmail.com" class="cta-contact-item">
+            <span class="cta-contact-icon">✉</span>
+            nzerudigitalsytems@gmail.com
+          </a>
+
+          <div class="cta-contact-label">Location</div>
+
+          <div class="cta-contact-item" style="cursor:default;">
+            <span class="cta-contact-icon">⚑</span>
+            Malawi, Africa
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-top">
+
+
+        <div class="footer-brand">
+
+          <div class="footer-logo">
+            NZERU
+          </div>
+
+          <p>
+            Smart systems.
+            Secure businesses.
+            Better decisions.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <div class="footer-title">
+            Explore
+          </div>
+
+          <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#products">Products</a>
+            <a href="#faq">FAQ</a>
+          </div>
+
+        </div>
+
+
+        <div>
+
+          <div class="footer-title">
+            Company
+          </div>
+
+          <div class="footer-links">
+            <a href="#experience">Experience</a>
+            <a href="#team">Team</a>
+            <a href="#contact">Contact</a>
+          </div>
+
+        </div>
+
+
+        <div>
+
+          <div class="footer-title">
+            Contact
+          </div>
+
+          <div class="footer-links">
+            <a href="tel:+265881103561">+265 881 103 561</a>
+            <a href="tel:+265992579666">+265 992 579 666</a>
+            <a href="tel:+265883414246">+265 883 414 246</a>
+            <a href="tel:+265982842267">+265 982 842 267</a>
+            <a href="mailto:nzerudigitalsytems@gmail.com">nzerudigitalsytems@gmail.com</a>
+            <span style="color:rgba(255,255,255,.4);font-size:11px;">Malawi, Africa</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <span>
+          © 2026 Nzeru Digital Solutions.
+          All rights reserved.
+        </span>
+
+        <span>
+          Built with purpose.
+        </span>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- =======================================================
+       JAVASCRIPT
+  ======================================================== -->
+
+  <!-- =======================================================
+       FLOATING WHATSAPP BUTTON
+  ======================================================== -->
+
+  <a
+    href="https://wa.me/265992579666?text=Hello%20Nzeru%20Digital!%20I%20would%20like%20to%20inquire%20about%20your%20software%20and%20digital%20solutions."
+    target="_blank"
+    rel="noopener noreferrer"
+    class="whatsapp-float"
+    aria-label="Chat with Nzeru Digital on WhatsApp"
+  >
+    <div class="wa-tooltip">
+      <span class="wa-status-dot"></span>
+      Chat with Nzeru
+    </div>
+    <div class="wa-btn">
+      <svg viewBox="0 0 24 24">
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+      </svg>
+    </div>
+  </a>
+
+
+  <!-- =======================================================
+       CONSULTATION & QUOTE MODAL
+  ======================================================== -->
+
+  <div class="nzeru-modal-overlay" id="quoteModal">
+
+    <div class="nzeru-modal">
+
+      <button type="button" class="modal-close" id="closeQuoteModal">&times;</button>
+
+      <div class="modal-header">
+        <div class="eyebrow" style="margin-bottom:8px;">Let's Connect</div>
+        <h3 class="modal-title">Request a Consultation</h3>
+        <p class="modal-subtitle">Tell us about your project or system requirements. Our technical team will get back to you promptly.</p>
+      </div>
+
+      <form id="quoteForm">
+
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label class="form-label" for="qName">Full Name *</label>
+            <input type="text" id="qName" class="form-input" placeholder="e.g. John Banda" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="qOrg">Company / School</label>
+            <input type="text" id="qOrg" class="form-input" placeholder="e.g. Apex Academy" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="qPhone">WhatsApp / Phone *</label>
+            <input type="tel" id="qPhone" class="form-input" placeholder="+265 999 000 000" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="qEmail">Email Address</label>
+            <input type="email" id="qEmail" class="form-input" placeholder="john@example.com" />
+          </div>
+
+          <div class="form-group full">
+            <label class="form-label" for="qService">Service / Product Needed</label>
+            <select id="qService" class="form-select">
+              <option value="Custom Software Development">Custom Software Development (Nzeru Solutions)</option>
+              <option value="School Management System">School Systems (EdTech Portal)</option>
+              <option value="Nzeru Savings">Nzeru Savings (FinTech Ledger)</option>
+              <option value="Business Management SaaS">Business Management (ERP / POS / Inventory)</option>
+              <option value="Bridge Sign">Bridge Sign (Digital Signage)</option>
+              <option value="Cybersecurity Audit & Training">Cybersecurity Audit &amp; Training (Nzeru Cyber)</option>
+              <option value="Data Analytics & AI Insights">Data Analytics &amp; AI Insights (Nzeru Intelligence)</option>
+            </select>
+          </div>
+
+          <div class="form-group full">
+            <label class="form-label" for="qMsg">Project Details / Message</label>
+            <textarea id="qMsg" class="form-textarea" placeholder="Briefly describe your requirements, timeline, or current challenges..."></textarea>
+          </div>
+
+        </div>
+
+        <div class="modal-actions">
+          <button type="submit" class="btn-wa-submit">
+            <span>Send via WhatsApp ↗</span>
+          </button>
+          <button type="button" class="btn" id="emailDraftBtn" style="background:var(--black);">
+            <span>Send via Email ✉</span>
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <!-- =======================================================
+       PRODUCT DETAILS MODAL
+  ======================================================== -->
+
+  <div class="nzeru-modal-overlay" id="productModal">
+
+    <div class="nzeru-modal">
+
+      <button type="button" class="modal-close" id="closeProductModal">&times;</button>
+
+      <div class="product-modal-badge" id="pModalBadge">Nzeru Systems</div>
+      <h3 class="modal-title" id="pModalTitle">Product Name</h3>
+      <p class="modal-subtitle" id="pModalTagline">Product short tagline</p>
+
+      <div class="product-modal-img" style="margin-top:18px;">
+        <img id="pModalImg" src="" alt="Nzeru Product Preview" />
+      </div>
+
+      <p class="body-copy" id="pModalDesc" style="font-size:13px;"></p>
+
+      <h4 style="font-family:'Space Grotesk',sans-serif;font-size:15px;margin-top:20px;letter-spacing:-.02em;">Key Features &amp; Capabilities:</h4>
+      <ul class="product-feature-list" id="pModalFeatures">
+        <!-- populated dynamically -->
+      </ul>
+
+      <div class="modal-actions">
+        <button type="button" class="btn" id="pModalDemoBtn">
+          <span>REQUEST LIVE DEMO →</span>
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =======================================================
+       JAVASCRIPT
+  ======================================================== -->
+
+  <script>
+
+    /* =====================================================
+       PRODUCT CATALOG DATA
+    ====================================================== */
+
+    const PRODUCTS_DATA = {
+      business: {
+        badge: "Nzeru Systems / Enterprise SaaS",
+        title: "Business Management System",
+        tagline: "Centralized operations, real-time inventory, sales and financial control.",
+        image: "assets/products/product-1.jpg",
+        desc: "Designed specifically for growing African businesses to eliminate paperwork, control leakages, and give directors complete visibility over multiple branches from any phone or computer.",
+        features: [
+          "Real-time multi-branch stock and inventory management",
+          "Automated point-of-sale (POS) and invoice generation",
+          "Expense tracking, profit/loss and cash-flow reports",
+          "Staff shift attendance and role-based access security",
+          "Automated weekly director summaries via WhatsApp/Email"
+        ]
+      },
+      school: {
+        badge: "Nzeru Systems / EdTech",
+        title: "School Management System",
+        tagline: "All-in-one digital campus portal for schools, colleges & academies.",
+        image: "assets/products/product-2.jpg",
+        desc: "A modern school administration system that removes the stress of end-of-term reporting, fee tracking, and parent communication. Accessible securely on desktop and mobile.",
+        features: [
+          "Automated terminal report card generator with grading curves",
+          "Student profiles, medical records and digital admissions",
+          "Fee balance tracking with instant SMS payment receipts",
+          "Daily attendance registers with parent notification triggers",
+          "Teacher timetable planner and exam marks entry portal"
+        ]
+      },
+      savings: {
+        badge: "Nzeru Systems / FinTech",
+        title: "Nzeru Savings Ledger",
+        tagline: "Secure digital management for SACCOs, VSLAs, and investment clubs.",
+        image: "assets/products/nzeru savings.jpeg",
+        desc: "Replaces manual paper logbooks with an immutable, transparent digital ledger. Empowers savings groups to accurately track contributions, disburse loans, and calculate interest distributions.",
+        features: [
+          "Member contribution logs with instant digital receipts",
+          "Automated loan repayment calculators with interest tracking",
+          "Bank-grade encrypted audit trails with multi-admin approvals",
+          "End-of-cycle share-out dividend distribution generator",
+          "Exportable PDF and Excel financial health reports"
+        ]
+      },
+      bridge: {
+        badge: "Nzeru Solutions / Smart Displays",
+        title: "Bridge Sign Digital Network",
+        tagline: "Cloud-managed digital signage and multimedia broadcast displays.",
+        image: "assets/products/bridge sign.jpeg",
+        desc: "Transform standard TV screens in bank branches, school receptions, hospitals, and corporate lobbies into smart broadcast channels managed from a single central web dashboard.",
+        features: [
+          "Remote content updates to unlimited screens in real time",
+          "Scheduled playlists for videos, posters, announcements & notices",
+          "Live currency exchange rates, weather and news RSS feeds",
+          "Instant emergency broadcast takeover alerts",
+          "Hardware-agnostic plug-and-play setup"
+        ]
+      },
+      data: {
+        badge: "Nzeru Intelligence / AI & Analytics",
+        title: "Data & Insights Engine",
+        tagline: "Turn messy operational data into predictive business intelligence.",
+        image: "assets/products/product-2.jpeg",
+        desc: "We build custom analytics pipelines that aggregate data across your sales, supply chain, and customer interactions to uncover actionable revenue opportunities and reduce operational waste.",
+        features: [
+          "Custom interactive executive dashboards with KPI alerts",
+          "Predictive inventory reorder triggers and demand forecasting",
+          "Customer churn analysis and retention scoring",
+          "Automated data consolidation from spreadsheets and legacy databases",
+          "Executive weekly AI digests with plain-English insights"
+        ]
+      }
+    };
+
+
+    /* =====================================================
+       MODAL CONTROLLERS
+    ====================================================== */
+
+    const quoteModal = document.getElementById('quoteModal');
+    const productModal = document.getElementById('productModal');
+    const closeQuoteBtn = document.getElementById('closeQuoteModal');
+    const closeProductBtn = document.getElementById('closeProductModal');
+
+    function openModal(modal) {
+      modal.classList.add('open');
+      document.body.classList.add('no-scroll');
+    }
+
+    function closeModal(modal) {
+      modal.classList.remove('open');
+      document.body.classList.remove('no-scroll');
+    }
+
+    // Bind all buttons with data-open-modal="quote"
+    document.querySelectorAll('[data-open-modal="quote"]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal(quoteModal);
+      });
+    });
+
+    closeQuoteBtn.addEventListener('click', () => closeModal(quoteModal));
+    closeProductBtn.addEventListener('click', () => closeModal(productModal));
+
+    // Close on overlay backdrop click
+    [quoteModal, productModal].forEach(modal => {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal(modal);
+      });
+    });
+
+    // Close on ESC key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeModal(quoteModal);
+        closeModal(productModal);
+      }
+    });
+
+    // Product Card Clicks
+    document.querySelectorAll('[data-product-id]').forEach(card => {
+      card.addEventListener('click', () => {
+        const id = card.getAttribute('data-product-id');
+        const data = PRODUCTS_DATA[id];
+        if (!data) return;
+
+        document.getElementById('pModalBadge').textContent = data.badge;
+        document.getElementById('pModalTitle').textContent = data.title;
+        document.getElementById('pModalTagline').textContent = data.tagline;
+        document.getElementById('pModalImg').src = data.image;
+        document.getElementById('pModalDesc').textContent = data.desc;
+
+        const featureList = document.getElementById('pModalFeatures');
+        featureList.innerHTML = data.features
+          .map(f => `<li class="product-feature-item"><i>✓</i> ${f}</li>`)
+          .join('');
+
+        // Wire demo button inside product modal to quote modal
+        document.getElementById('pModalDemoBtn').onclick = () => {
+          closeModal(productModal);
+          const sel = document.getElementById('qService');
+          if (sel) {
+            for (let i = 0; i < sel.options.length; i++) {
+              if (sel.options[i].text.toLowerCase().includes(data.title.toLowerCase().slice(0, 8))) {
+                sel.selectedIndex = i;
+                break;
+              }
+            }
+          }
+          setTimeout(() => openModal(quoteModal), 200);
+        };
+
+        openModal(productModal);
+      });
+    });
+
+
+    /* =====================================================
+       QUOTE FORM SUBMIT (WHATSAPP & EMAIL)
+    ====================================================== */
+
+    const quoteForm = document.getElementById('quoteForm');
+
+    function buildLeadMessage() {
+      const name = document.getElementById('qName').value.trim();
+      const org = document.getElementById('qOrg').value.trim() || 'N/A';
+      const phone = document.getElementById('qPhone').value.trim();
+      const email = document.getElementById('qEmail').value.trim() || 'N/A';
+      const service = document.getElementById('qService').value;
+      const msg = document.getElementById('qMsg').value.trim() || 'Please reach out to discuss.';
+
+      const text = `*New Nzeru Consultation Request*%0A` +
+        `👤 *Name:* ${encodeURIComponent(name)}%0A` +
+        `🏢 *Organization:* ${encodeURIComponent(org)}%0A` +
+        `📞 *Phone/WA:* ${encodeURIComponent(phone)}%0A` +
+        `✉️ *Email:* ${encodeURIComponent(email)}%0A` +
+        `🛠️ *Service:* ${encodeURIComponent(service)}%0A` +
+        `📝 *Details:* ${encodeURIComponent(msg)}`;
+
+      return { text, name, org, phone, email, service, msg };
+    }
+
+    quoteForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const lead = buildLeadMessage();
+      window.open(`https://wa.me/265992579666?text=${lead.text}`, '_blank');
+      closeModal(quoteModal);
+      quoteForm.reset();
+    });
+
+    document.getElementById('emailDraftBtn').addEventListener('click', () => {
+      const lead = buildLeadMessage();
+      if (!lead.name || !lead.phone) {
+        alert('Please fill in your name and phone number.');
+        return;
+      }
+      const subject = encodeURIComponent(`Consultation Request: ${lead.name} (${lead.org})`);
+      const body = encodeURIComponent(
+        `Name: ${lead.name}\nOrganization: ${lead.org}\nPhone: ${lead.phone}\nEmail: ${lead.email}\nService: ${lead.service}\n\nProject Details:\n${lead.msg}`
+      );
+      window.location.href = `mailto:nzerudigitalsytems@gmail.com?subject=${subject}&body=${body}`;
+      closeModal(quoteModal);
+      quoteForm.reset();
+    });
+
+
+    /* =====================================================
+       FAQ ACCORDION
+    ====================================================== */
+
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      const answer = item.querySelector('.faq-answer');
+
+      question.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+
+        // Close all other items
+        faqItems.forEach(otherItem => {
+          otherItem.classList.remove('active');
+          otherItem.querySelector('.faq-answer').style.maxHeight = null;
+        });
+
+        // Toggle clicked item
+        if (!isActive) {
+          item.classList.add('active');
+          answer.style.maxHeight = answer.scrollHeight + "px";
+        }
+      });
+    });
+
+
+    /* =====================================================
+       LOADER
+    ====================================================== */
+
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.getElementById("loader").classList.add("hide");
+      }, 1400);
+    });
+
+
+    /* =====================================================
+       NAVIGATION
+    ====================================================== */
+
+    const nav = document.getElementById("nav");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 40) {
+        nav.classList.add("scrolled");
+      } else {
+        nav.classList.remove("scrolled");
+      }
+    });
+
+
+    /* =====================================================
+       MOBILE MENU
+    ====================================================== */
+
+    const mobileToggle = document.getElementById("mobileToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    mobileToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+      });
+    });
+
+
+    /* =====================================================
+       SCROLL REVEAL
+    ====================================================== */
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: .12 }
+    );
+
+    revealElements.forEach(element => {
+      revealObserver.observe(element);
+    });
+
+
+    /* =====================================================
+       COUNTERS & PROGRESS ANIMATION
+    ====================================================== */
+
+    const counters = document.querySelectorAll(".counter");
+    const statProgresses = document.querySelectorAll(".stat-progress");
+
+    const counterObserver = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+
+          statProgresses.forEach(sp => sp.classList.add("animated"));
+
+          const counter = entry.target;
+          const target = Number(counter.dataset.target);
+          let current = 0;
+          const duration = 1600;
+          const start = performance.now();
+
+          function update(time) {
+            const progress = Math.min((time - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            current = Math.floor(target * eased);
+            counter.textContent = current;
+
+            if (progress < 1) {
+              requestAnimationFrame(update);
+            } else {
+              counter.textContent = target;
+              counter.style.transform = "scale(1.08)";
+              setTimeout(() => { counter.style.transform = "scale(1)"; }, 250);
+            }
+          }
+
+          requestAnimationFrame(update);
+          counterObserver.unobserve(counter);
+        });
+      },
+      { threshold: .35 }
+    );
+
+    counters.forEach(counter => {
+      counterObserver.observe(counter);
+    });
+
+
+    /* =====================================================
+       3D STAT CARD TILT EFFECT
+    ====================================================== */
+
+    const tiltCards = document.querySelectorAll("[data-tilt]");
+
+    tiltCards.forEach(card => {
+      card.addEventListener("mousemove", e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        const rotX = (y / (rect.height / 2)) * -6;
+        const rotY = (x / (rect.width / 2)) * 6;
+        card.style.transform = `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-6px)`;
+      });
+
+      card.addEventListener("mouseleave", () => {
+        card.style.transform = "perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0)";
+      });
+    });
+
+
+    /* =====================================================
+       SMOOTH MAGNETIC BUTTON EFFECT
+    ====================================================== */
+
+    const buttons = document.querySelectorAll(".btn");
+
+    buttons.forEach(button => {
+      button.addEventListener("mousemove", event => {
+        const rect = button.getBoundingClientRect();
+        const x = event.clientX - rect.left - rect.width / 2;
+        const y = event.clientY - rect.top - rect.height / 2;
+        button.style.transform = `translate(${x * .08}px, ${y * .08}px)`;
+      });
+
+      button.addEventListener("mouseleave", () => {
+        button.style.transform = "translate(0, 0)";
+      });
+    });
+
+
+    /* =====================================================
+       ACTIVE NAVIGATION
+    ====================================================== */
+
+    const sections = document.querySelectorAll("main section[id]");
+    const navigationLinks = document.querySelectorAll(".nav-links a");
+
+    const activeObserver = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          navigationLinks.forEach(link => { link.style.color = ""; });
+          const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+          if (active) active.style.color = "var(--red)";
+        });
+      },
+      { threshold: .45 }
+    );
+
+    sections.forEach(section => {
+      activeObserver.observe(section);
+    });
+
+
+    /* =====================================================
+       PARTICLE CANVAS HERO
+    ====================================================== */
+
+    (function () {
+      const canvas = document.getElementById('particle-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+
+      let W, H, dpr;
+      let mouse = { x: -9999, y: -9999 };
+      let targetMouse = { x: -9999, y: -9999 };
+      const PARTICLE_COUNT = 340;
+      const CONNECT_DIST = 130;
+      const MOUSE_RADIUS = 200;
+      const MOUSE_FORCE = 70;
+
+      const TEAL = 'rgba(7,80,87,';
+      const GREY = 'rgba(140,158,158,';
+      const RED  = 'rgba(223,36,25,';
+
+      let particles = [];
+
+      function rand(a, b) { return a + Math.random() * (b - a); }
+
+      class Particle {
+        constructor() { this.reset(true); }
+
+        reset(init) {
+          this.ox = rand(W * 0.10, W * 0.98);
+          this.oy = rand(H * 0.02, H * 0.98);
+          this.x  = init ? this.ox : this.ox;
+          this.y  = init ? this.oy : this.oy;
+          this.vx = rand(-0.35, 0.35);
+          this.vy = rand(-0.35, 0.35);
+          this.r  = rand(1.0, 2.8);
+
+          const t = Math.random();
+          if (t < 0.03)       { this.type = 'red';  }
+          else if (t < 0.50)  { this.type = 'teal'; }
+          else                { this.type = 'grey'; }
+
+          this.floatAmpX  = rand(2.5, 7.0);
+          this.floatAmpY  = rand(2.5, 7.0);
+          this.floatSpeed = rand(0.0006, 0.002);
+          this.floatPhase = rand(0, Math.PI * 2);
+        }
+
+        update(t) {
+          const fx = Math.sin(t * this.floatSpeed * 1000 + this.floatPhase) * this.floatAmpX;
+          const fy = Math.cos(t * this.floatSpeed * 800  + this.floatPhase) * this.floatAmpY;
+
+          const dx = mouse.x - this.x;
+          const dy = mouse.y - this.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          let forceX = 0, forceY = 0;
+          if (dist < MOUSE_RADIUS && dist > 1) {
+            const strength = (1 - dist / MOUSE_RADIUS) * MOUSE_FORCE;
+            forceX = (dx / dist) * strength * 0.018;
+            forceY = (dy / dist) * strength * 0.018;
+          }
+
+          const springX = (this.ox + fx - this.x) * 0.018;
+          const springY = (this.oy + fy - this.y) * 0.018;
+
+          this.vx = this.vx * 0.92 + springX + forceX;
+          this.vy = this.vy * 0.92 + springY + forceY;
+
+          this.x += this.vx;
+          this.y += this.vy;
+        }
+
+        draw() {
+          let col;
+          if (this.type === 'red')  col = RED;
+          else if (this.type === 'teal') col = TEAL;
+          else col = GREY;
+
+          const alpha = this.type === 'red' ? 0.9 : (this.type === 'teal' ? 0.7 : 0.45);
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+          ctx.fillStyle = col + alpha + ')';
+          ctx.fill();
+        }
+      }
+
+      function drawConnections() {
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const a = particles[i], b = particles[j];
+            const dx = a.x - b.x, dy = a.y - b.y;
+            const d = Math.sqrt(dx * dx + dy * dy);
+            if (d < CONNECT_DIST) {
+              const alpha = (1 - d / CONNECT_DIST) * 0.28;
+              const c = (a.type === 'red' || b.type === 'red') ? RED
+                      : (a.type === 'teal' || b.type === 'teal') ? TEAL : GREY;
+              ctx.beginPath();
+              ctx.moveTo(a.x, a.y);
+              ctx.lineTo(b.x, b.y);
+              ctx.strokeStyle = c + alpha + ')';
+              ctx.lineWidth = 0.7;
+              ctx.stroke();
+            }
+          }
+        }
+      }
+
+      function resize() {
+        dpr = window.devicePixelRatio || 1;
+        const rect = canvas.getBoundingClientRect();
+        W = rect.width;
+        H = rect.height;
+        canvas.width  = W * dpr;
+        canvas.height = H * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        particles = Array.from({ length: PARTICLE_COUNT }, () => new Particle());
+      }
+
+      function loop(t) {
+        requestAnimationFrame(loop);
+        ctx.clearRect(0, 0, W, H);
+
+        mouse.x += (targetMouse.x - mouse.x) * 0.072;
+        mouse.y += (targetMouse.y - mouse.y) * 0.072;
+
+        drawConnections();
+        particles.forEach(p => { p.update(t); p.draw(); });
+      }
+
+      window.addEventListener('resize', resize);
+
+      // Mouse tracking relative to hero section
+      const heroSection = document.getElementById('home');
+      heroSection.addEventListener('mousemove', e => {
+        const rect = canvas.getBoundingClientRect();
+        targetMouse.x = e.clientX - rect.left;
+        targetMouse.y = e.clientY - rect.top;
+      });
+      heroSection.addEventListener('mouseleave', () => {
+        targetMouse.x = -9999;
+        targetMouse.y = -9999;
+      });
+
+      // Mobile Touch Tracking: fingers bend and ripple the particle field in real time
+      heroSection.addEventListener('touchstart', e => {
+        if (e.touches.length > 0) {
+          const rect = canvas.getBoundingClientRect();
+          targetMouse.x = e.touches[0].clientX - rect.left;
+          targetMouse.y = e.touches[0].clientY - rect.top;
+        }
+      }, { passive: true });
+
+      heroSection.addEventListener('touchmove', e => {
+        if (e.touches.length > 0) {
+          const rect = canvas.getBoundingClientRect();
+          targetMouse.x = e.touches[0].clientX - rect.left;
+          targetMouse.y = e.touches[0].clientY - rect.top;
+        }
+      }, { passive: true });
+
+      heroSection.addEventListener('touchend', () => {
+        // Softly release back to ambient drift
+        setTimeout(() => {
+          targetMouse.x = -9999;
+          targetMouse.y = -9999;
+        }, 1500);
+      });
+
+      // Mobile: Continuous multi-frequency organic flow (ambient living particle fluid)
+      let mobileT = 0;
+      function mobileAmbientFlow() {
+        if (window.innerWidth <= 800) {
+          mobileT += 0.016;
+          // Lissajous curve floating gravity point
+          if (targetMouse.x === -9999) {
+            targetMouse.x = W * 0.55 + Math.sin(mobileT * 0.7) * (W * 0.35) + Math.cos(mobileT * 1.3) * (W * 0.15);
+            targetMouse.y = H * 0.45 + Math.cos(mobileT * 0.9) * (H * 0.30) + Math.sin(mobileT * 1.6) * (H * 0.12);
+          }
+        }
+        requestAnimationFrame(mobileAmbientFlow);
+      }
+      mobileAmbientFlow();
+
+      resize();
+      requestAnimationFrame(loop);
+    })();
+
+
+    /* =====================================================
+       MOBILE SCROLL-ACTIVE HIGHLIGHTS
+    ====================================================== */
+
+    if ('IntersectionObserver' in window && window.innerWidth <= 800) {
+      const mobileObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('mobile-active');
+          } else {
+            entry.target.classList.remove('mobile-active');
+          }
+        });
+      }, { threshold: 0.55 });
+
+      document.querySelectorAll('.service, .stat, .advantage-card').forEach(el => {
+        mobileObserver.observe(el);
+      });
+    }
+
+  </script>
+
 </body>
 </html>
