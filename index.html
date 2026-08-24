@@ -293,20 +293,44 @@
 
     .mobile-toggle {
       display: none;
-      width: 42px;
-      height: 42px;
+      width: 44px;
+      height: 44px;
       border: 1px solid var(--border);
       border-radius: 50%;
       align-items: center;
       justify-content: center;
       flex-direction: column;
       gap: 5px;
+      background: white;
+      position: relative;
+      z-index: 1002;
+      cursor: pointer;
+      transition: border-color .3s ease, background .3s ease;
     }
 
     .mobile-toggle span {
-      width: 17px;
-      height: 1px;
+      width: 18px;
+      height: 2px;
       background: var(--black);
+      border-radius: 1px;
+      transition: transform .35s var(--ease), background .35s ease, opacity .25s ease;
+      transform-origin: center;
+    }
+
+    /* Morph hamburger to X */
+    .mobile-toggle.active {
+      border-color: var(--red);
+      background: #fff4f3;
+    }
+
+    .mobile-toggle.active span:nth-child(1) {
+      transform: translateY(3.5px) rotate(45deg);
+      background: var(--red);
+    }
+
+    .mobile-toggle.active span:nth-child(2) {
+      transform: translateY(-3.5px) rotate(-45deg);
+      background: var(--red);
     }
 
 
@@ -1460,20 +1484,31 @@
       .nav-links {
         position: fixed;
         inset: 0;
-        background: white;
+        width: 100%;
+        height: 100vh;
+        height: 100dvh;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
         flex-direction: column;
         justify-content: center;
-        gap: 28px;
-        transform: translateX(100%);
-        transition: transform .6s var(--ease);
+        align-items: center;
+        gap: 22px;
+        transform: translateY(-100%);
+        transition: transform .45s var(--ease);
+        z-index: 1001;
+        padding: 60px 20px 40px;
       }
 
       .nav-links.open {
-        transform: translateX(0);
+        transform: translateY(0);
       }
 
       .nav-links a {
-        font-size: 25px;
+        font-size: 22px;
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        letter-spacing: -.03em;
       }
 
       .nav-cta {
@@ -1482,8 +1517,51 @@
 
       .mobile-toggle {
         display: flex;
+      }
+
+      /* Services: Default rich dark teal card design on mobile */
+      .service {
+        background: var(--teal) !important;
+        color: white !important;
+        border-radius: 6px;
+        border: 1px solid rgba(255,255,255,0.12) !important;
+        padding: 24px 20px !important;
+        margin-bottom: 14px;
+        box-shadow: 0 8px 24px rgba(7, 80, 87, 0.18);
         position: relative;
-        z-index: 3;
+        overflow: hidden;
+      }
+
+      .service::before {
+        display: none;
+      }
+
+      .service-number {
+        display: inline-block !important;
+        color: #ff6259 !important;
+        font-size: 13px !important;
+        font-weight: 700;
+      }
+
+      .service-name {
+        color: white !important;
+        font-size: 21px !important;
+      }
+
+      .service-description {
+        display: block !important;
+        color: rgba(255, 255, 255, 0.82) !important;
+        font-size: 13px !important;
+        grid-column: 1 / -1;
+        margin-top: 4px;
+        line-height: 1.5;
+      }
+
+      .service-arrow {
+        background: var(--red) !important;
+        border-color: var(--red) !important;
+        color: white !important;
+        transform: rotate(-45deg);
       }
 
       .hero-bottom,
@@ -2387,8 +2465,8 @@
 
           <div class="about-image-main">
             <img
-              src="assets/team/joel.jpeg"
-              alt="Nzeru Digital team"
+              src="assets/about.jpg"
+              alt="Nzeru Digital Command Hub"
             />
           </div>
 
@@ -3740,13 +3818,26 @@
     const mobileToggle = document.getElementById("mobileToggle");
     const navLinks = document.getElementById("navLinks");
 
-    mobileToggle.addEventListener("click", () => {
-      navLinks.classList.toggle("open");
-    });
+    function toggleMobileMenu() {
+      const isOpen = navLinks.classList.contains("open");
+      if (isOpen) {
+        navLinks.classList.remove("open");
+        mobileToggle.classList.remove("active");
+        document.body.classList.remove("no-scroll");
+      } else {
+        navLinks.classList.add("open");
+        mobileToggle.classList.add("active");
+        document.body.classList.add("no-scroll");
+      }
+    }
+
+    mobileToggle.addEventListener("click", toggleMobileMenu);
 
     document.querySelectorAll(".nav-links a").forEach(link => {
       link.addEventListener("click", () => {
         navLinks.classList.remove("open");
+        mobileToggle.classList.remove("active");
+        document.body.classList.remove("no-scroll");
       });
     });
 
